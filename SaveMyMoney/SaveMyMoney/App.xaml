@@ -1,0 +1,18 @@
+﻿<Application x:Class="SaveMyMoney.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SaveMyMoney"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ThemesLight.xaml" />
+                <ResourceDictionary Source="ThemesDark.xaml" />
+                <ResourceDictionary Source="Dictionary_rus.xaml" />
+                <ResourceDictionary Source="Dictionary_eng.xaml" />
+
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
