@@ -210,8 +210,12 @@ namespace SaveMyMoney
         }
 
 
+
         #endregion
 
-     
+        private void Text_box_password_text_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

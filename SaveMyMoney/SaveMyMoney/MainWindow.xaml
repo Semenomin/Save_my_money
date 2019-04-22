@@ -28,7 +28,7 @@
                 </Rectangle.Effect>
             </Rectangle>
             <Rectangle x:Name="Little_2" Fill="{DynamicResource SecondGreen}" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
-            <TextBox x:Name="Text_box_password_text" HorizontalAlignment="Left" Height="56" TextWrapping="Wrap" Text="{DynamicResource Password}" VerticalAlignment="Top" Width="268" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" MouseEnter="Text_box_password_text_MouseEnter" MouseLeave="Text_box_password_text_MouseLeave" LostFocus="Text_box_password_text_LostFocus" GotFocus="Text_box_password_text_GotFocus"/>
+            <TextBox x:Name="Text_box_password_text" HorizontalAlignment="Left" Height="56" TextWrapping="Wrap" Text="{DynamicResource Password}" VerticalAlignment="Top" Width="268" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" MouseEnter="Text_box_password_text_MouseEnter" MouseLeave="Text_box_password_text_MouseLeave" LostFocus="Text_box_password_text_LostFocus" GotFocus="Text_box_password_text_GotFocus" TextChanged="Text_box_password_text_TextChanged"/>
         </Grid>
         <Grid Margin="237,244,237,198">
             <Rectangle x:Name="Text_box_Login" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}">

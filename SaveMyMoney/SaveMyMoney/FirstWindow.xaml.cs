@@ -21,6 +21,8 @@ namespace SaveMyMoney
     public partial class FirstWindow : Window
     {
         List<Grid> grids = new List<Grid>(); //массив гридов для эффектов
+        string bufer;
+
         public FirstWindow(string style,string lang)
         {
             if (lang == "RUS")
@@ -78,6 +80,14 @@ namespace SaveMyMoney
             grids.Add(Grid_Menu_Button_4);
             grids.Add(Grid_Menu_Button_5);
             grids.Add(Grid_Menu_Button_6);
+            grids.Add(Grid_moneyIn_menu_button_1);
+            grids.Add(Grid_moneyIn_menu_button_2);
+            grids.Add(Grid_moneyIn_menu_button_3);
+            grids.Add(Grid_moneyIn_menu_button_4);
+            grids.Add(Grid_text_box_1);
+            grids.Add(Grid_text_box_2);
+            grids.Add(Grid_text_box_3);
+
             foreach (Grid item in grids) //события изменения эффекта тени для всех гридов в массиве
             {
                     item.MouseEnter += Grid_Menu_Button_1_MouseEnter;
@@ -107,6 +117,26 @@ namespace SaveMyMoney
         {
             Grid grid = sender as Grid;
             grid.Effect = Shadow_50;
+        }
+
+        private void Text_box_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == "")
+                textBox.Text = bufer;
+        }
+
+        private void Text_box_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            bufer = textBox.Text;
+            if (textBox.Text == bufer)
+                textBox.Text = "";
+        }
+
+        private void TextBox_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
