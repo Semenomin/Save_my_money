@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\User\source\repos\SaveMyMoney\SaveMyMoney\obj\Debug\
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\
 SaveMyMoney
 none
 false
 DEBUG;TRACE
-C:\Users\User\source\repos\SaveMyMoney\SaveMyMoney\App.xaml
-61627897732
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\App.xaml
+7-264272072
 
-104738210
+13-2060845542
 131569487696
-Dictionary_eng.xaml;Dictionary_rus.xaml;Language.xaml;MainWindow.xaml;ThemesDark.xaml;ThemesLight.xaml;
+FirstWindow.xaml;Resorses\Dictionary_eng.xaml;Resorses\Dictionary_rus.xaml;User Controls\Language.xaml;MainWindow.xaml;User Controls\Main_center_button.xaml;User Controls\Main_menu_button.xaml;
 
-True
+False
 

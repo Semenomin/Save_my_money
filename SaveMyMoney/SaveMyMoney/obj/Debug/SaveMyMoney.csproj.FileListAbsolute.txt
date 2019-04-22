@@ -21,3 +21,30 @@ C:\Users\User\source\repos\SaveMyMoney\SaveMyMoney\obj\Debug\Language.g.cs
 C:\Users\User\source\repos\SaveMyMoney\SaveMyMoney\obj\Debug\Language.baml
 C:\Users\User\source\repos\SaveMyMoney\SaveMyMoney\obj\Debug\Dictionary_rus.baml
 C:\Users\User\source\repos\SaveMyMoney\SaveMyMoney\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.csprojAssemblyReference.cache
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\User Controls\Language.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\MainWindow.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\App.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney_MarkupCompile.cache
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney_MarkupCompile.lref
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.exe
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.pdb
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\FirstWindow.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\User Controls\Main_center_button.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\SaveMyMoney.exe.config
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\SaveMyMoney.exe
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\SaveMyMoney.pdb
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\App.baml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Resorses\Dictionary_eng.baml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Resorses\Dictionary_rus.baml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\User Controls\Language.baml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\MainWindow.baml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\FirstWindow.baml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\User Controls\Main_center_button.baml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.g.resources
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.Properties.Resources.resources
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.csproj.GenerateResource.cache
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.csproj.CoreCompileInputs.cache
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\User Controls\Main_menu_button.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\User Controls\Main_menu_button.baml

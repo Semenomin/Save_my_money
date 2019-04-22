@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:SaveMyMoney"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="750" MaxWidth="750" MaxHeight="500" Padding="20" MinWidth="750" MinHeight="500" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" WindowStyle="None">
-    <Grid x:Name="Main_grid" Background="{DynamicResource MainGreen}" Rectangle.MouseEnter = "Shadows_enter">
+    <Grid x:Name="Main_grid" Background="{DynamicResource MainGreen}">
         <Grid.RowDefinitions>
             <RowDefinition Height="498"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="742"/>
         </Grid.ColumnDefinitions>
-        <Grid Margin="237,377,237,65">
+        <Grid Margin="237,377,237,65" MouseDown="LogIn_button_text_MouseDown">
             <Rectangle x:Name="Log_In_Button" RadiusY="28" RadiusX="28" Cursor="Hand" MouseEnter="Log_In_Button_MouseEnter" MouseLeave="Log_In_Button_MouseLeave" Fill="{DynamicResource SecondGreen}">
                 <Rectangle.Effect>
                     <DropShadowEffect x:Name="Drop_shadow_button" Opacity="0.5" BlurRadius="6"/>
@@ -39,7 +39,7 @@
             <Rectangle x:Name="Little_1" Fill="{DynamicResource SecondGreen}" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
             <TextBox x:Name="Text_box_Login_text" TextWrapping="Wrap" Text="{DynamicResource Login}" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" MouseEnter="Text_box_Login_text_MouseEnter" MouseLeave="Text_box_Login_text_MouseLeave" Foreground="{DynamicResource MainGreen}" HorizontalScrollBarVisibility="Auto" GotFocus="Text_box_Login_text_GotFocus" LostFocus="Text_box_Login_text_LostFocus" />
         </Grid>
-        <Image x:Name="Лампочка_green" Margin="25,25,670,409" Source="Лампочка_green1.png" Stretch="Fill" MouseEnter="Лампочка_green_MouseEnter" MouseLeave="Лампочка_green_MouseLeave" MouseLeftButtonUp="Лампочка_green_MouseLeftButtonUp_1">
+        <Image x:Name="Лампочка_green" Margin="25,25,670,409" Source="Лампочка_green.png" Stretch="Fill" MouseEnter="Лампочка_green_MouseEnter" MouseLeave="Лампочка_green_MouseLeave" MouseLeftButtonUp="Лампочка_green_MouseLeftButtonUp_1">
             <Image.Effect>
                 <DropShadowEffect x:Name="Shadow_light" Opacity="0.5"/>
             </Image.Effect>

@@ -56,15 +56,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Dictionary_eng.xaml">
+    <Compile Include="User Controls\Main_center_button.xaml.cs">
+      <DependentUpon>Main_center_button.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Main_menu_button.xaml.cs">
+      <DependentUpon>Main_menu_button.xaml</DependentUpon>
+    </Compile>
+    <Page Include="FirstWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dictionary_rus.xaml">
+    <Page Include="Resorses\Dictionary_eng.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Language.xaml">
+    <Page Include="Resorses\Dictionary_rus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Controls\Language.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -76,18 +86,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Language.xaml.cs">
+    <Compile Include="FirstWindow.xaml.cs">
+      <DependentUpon>FirstWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Language.xaml.cs">
       <DependentUpon>Language.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ThemesDark.xaml">
+    <Page Include="User Controls\Main_center_button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ThemesLight.xaml">
+    <Page Include="User Controls\Main_menu_button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,9 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Лампочка_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Лампочка_green1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

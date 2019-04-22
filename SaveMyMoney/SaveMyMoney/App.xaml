@@ -6,12 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ThemesLight.xaml" />
-                <ResourceDictionary Source="ThemesDark.xaml" />
-                <ResourceDictionary Source="Dictionary_rus.xaml" />
-                <ResourceDictionary Source="Dictionary_eng.xaml" />
-
-
+                <ResourceDictionary Source="Resorses/Dictionary_rus.xaml" />
+                <ResourceDictionary Source="Resorses/Dictionary_eng.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

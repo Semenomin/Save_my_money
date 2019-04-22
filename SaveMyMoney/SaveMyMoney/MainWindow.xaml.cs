@@ -161,13 +161,12 @@ namespace SaveMyMoney
             if (lang == "ENG")
             {
                 lang = "RUS";
-                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Dictionary_rus.xaml") };
+                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_rus.xaml") };
             }
             else
             {
                 lang = "ENG";
-                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Dictionary_eng.xaml") };
-
+                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_eng.xaml") };
             }
         }
         private void Button_svernut_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -177,6 +176,12 @@ namespace SaveMyMoney
         private void Language_button_Loaded(object sender, RoutedEventArgs e) //загрузка пользовательского ЭУ
         {
 
+        }
+        private void LogIn_button_text_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            FirstWindow firstWindow = new FirstWindow(style,lang);
+            firstWindow.Show();
+            this.Close();
         }
         #endregion
         #region Изменение работа с текстом внутри TextBox
@@ -204,8 +209,9 @@ namespace SaveMyMoney
                 Text_box_password_text.Text = "";
         }
 
+
         #endregion
 
-    
+     
     }
 }
