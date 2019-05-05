@@ -36,4 +36,17 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <system:String x:Key="Name">Имя</system:String>
+    <system:String x:Key="RepPassword">Повт Пороль</system:String>
+    <system:String x:Key="One_time_income">Разовый доход</system:String>
+    <system:String x:Key="income_planner">Планнер доходов</system:String>
+    <system:String x:Key="income_name">Имя дохода</system:String>
+    <system:String x:Key="Money_amount">Денежная сумма</system:String>
+    <system:String x:Key="Description">Описание</system:String>
+    <system:String x:Key="Period">Период</system:String>
+    <system:String x:Key="Onceaweek">Раз в неделю</system:String>
+    <system:String x:Key="Onceaday">Раз в день</system:String>
+    <system:String x:Key="Onceayear">Раз в год</system:String>
+    <system:String x:Key="Income">Доход</system:String>
+
 </ResourceDictionary>

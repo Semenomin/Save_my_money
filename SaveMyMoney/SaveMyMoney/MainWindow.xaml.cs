@@ -24,7 +24,7 @@ namespace SaveMyMoney
     public partial class MainWindow : Window
     {
         string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
-        string style = "ThemesDark";
+  
         string lang = "ENG";
         object id;
 
@@ -85,16 +85,7 @@ namespace SaveMyMoney
         {
             Drop_shadow_Text_box_login.Opacity = 0.50;
         }
-        private void Лампочка_green_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Shadow_light.Opacity = 0;
-        }
-
-        private void Лампочка_green_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Shadow_light.Opacity = 0.50;
-        }
-
+        
         private void Button_close_MouseEnter(object sender, MouseEventArgs e)
         {
             Close_Button_Shadow.Opacity = 0;
@@ -123,43 +114,7 @@ namespace SaveMyMoney
         private void Лампочка_green_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e) //изменение стилей
         {
            
-            if (style == "ThemesLight")
-            {
-                style = "ThemesDark";
-                Text_box_password_text.Foreground = (Brush)this.TryFindResource("MainGreen");
-                Text_box_Login_text.Foreground = (Brush)this.TryFindResource("MainGreen");
-                Main_grid.Background = (Brush)this.TryFindResource("MainGreen");
-                LogIn_button_text.Foreground = (Brush)this.TryFindResource("MainGreen");
-                Log_In_Button.Fill = (Brush)this.TryFindResource("SecondGreen");
-                Little_1.Fill = (Brush)this.TryFindResource("SecondGreen");
-                Little_2.Fill = (Brush)this.TryFindResource("SecondGreen");
-                Text_box_Login.Fill = (Brush)this.TryFindResource("SecondGreen");
-                Text_box_password.Fill = (Brush)this.TryFindResource("SecondGreen");
-                Button_close.Fill = (Brush)this.TryFindResource("SecondGreen");
-                Button_svernut.Fill = (Brush)this.TryFindResource("SecondGreen");
-                Button_resize_window.Fill = (Brush)this.TryFindResource("SecondGreen");
-                Main_label.Foreground = (Brush)this.TryFindResource("SecondGreen");
-                Language_button.Change_style();
-
-            }
-            else
-            {
-                style = "ThemesLight";
-                Text_box_password_text.Foreground = (Brush)this.TryFindResource("SecondGreen");
-                Text_box_Login_text.Foreground = (Brush)this.TryFindResource("SecondGreen");
-                Main_grid.Background = (Brush)this.TryFindResource("SecondGreen");
-                LogIn_button_text.Foreground = (Brush)this.TryFindResource("SecondGreen");
-                Log_In_Button.Fill = (Brush)this.TryFindResource("MainGreen");
-                Little_1.Fill = (Brush)this.TryFindResource("MainGreen");
-                Little_2.Fill = (Brush)this.TryFindResource("MainGreen");
-                Text_box_Login.Fill = (Brush)this.TryFindResource("MainGreen");
-                Text_box_password.Fill = (Brush)this.TryFindResource("MainGreen");
-                Button_close.Fill = (Brush)this.TryFindResource("MainGreen");
-                Button_svernut.Fill = (Brush)this.TryFindResource("MainGreen");
-                Button_resize_window.Fill = (Brush)this.TryFindResource("MainGreen");
-                Main_label.Foreground = (Brush)this.TryFindResource("MainGreen");
-                Language_button.Change_style();
-            }
+            
         }
         private void Language_MouseRightButtonUp(object sender, MouseButtonEventArgs e) //изменение языка
         {
@@ -197,7 +152,7 @@ namespace SaveMyMoney
                     {
                         id = reader.GetValue(0);
                     }
-                    FirstWindow firstWindow = new FirstWindow(style, lang);
+                    FirstWindow firstWindow = new FirstWindow(lang);
                     firstWindow.Show();
                     this.Close();
                 }
@@ -259,7 +214,7 @@ namespace SaveMyMoney
 
         private void Label_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            Registration reg = new Registration();
+            Registration reg = new Registration(lang);
             reg.ShowDialog();
         }
     }

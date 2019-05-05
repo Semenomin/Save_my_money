@@ -40,11 +40,6 @@
             <Rectangle x:Name="Little_1" Fill="{DynamicResource SecondGreen}" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
             <TextBox x:Name="Text_box_Login_text" TextWrapping="Wrap" Text="{DynamicResource Login}" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" MouseEnter="Text_box_Login_text_MouseEnter" MouseLeave="Text_box_Login_text_MouseLeave" Foreground="{DynamicResource MainGreen}" HorizontalScrollBarVisibility="Auto" GotFocus="Text_box_Login_text_GotFocus" LostFocus="Text_box_Login_text_LostFocus" />
         </Grid>
-        <Image x:Name="Лампочка_green" Margin="25,25,670,409" Source="Лампочка_green.png" Stretch="Fill" MouseEnter="Лампочка_green_MouseEnter" MouseLeave="Лампочка_green_MouseLeave" MouseLeftButtonUp="Лампочка_green_MouseLeftButtonUp_1">
-            <Image.Effect>
-                <DropShadowEffect x:Name="Shadow_light" Opacity="0.5"/>
-            </Image.Effect>
-        </Image>
         <Ellipse x:Name="Button_close" Fill="{DynamicResource SecondGreen}" Height="47" Margin="670,25,25,426" Width="47" MouseEnter="Button_close_MouseEnter" MouseLeave="Button_close_MouseLeave" Cursor="Hand" MouseUp="Button_close_MouseUp" >
             <Ellipse.Effect>
                 <DropShadowEffect x:Name="Close_Button_Shadow" Opacity="0.5"/>
@@ -66,6 +61,6 @@
                 <DropShadowEffect x:Name="Forever_shadow" Opacity="0.5"/>
             </Label.Effect>
         </Label>
-        <Label Content="Registration" HorizontalAlignment="Left" Margin="306,443,0,16" Cursor="Hand" FontSize="22" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource SecondGreen}" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseUp="Label_MouseUp"/>
+        <Label Content="{DynamicResource Registration}" HorizontalAlignment="Left" Margin="306,443,0,16" Cursor="Hand" FontSize="22" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource SecondGreen}" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseUp="Label_MouseUp"/>
     </Grid>
 </Window>

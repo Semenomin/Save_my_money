@@ -26,7 +26,7 @@
                 </Rectangle.Effect>
             </Rectangle>
             <Rectangle x:Name="Little_1" Fill="{DynamicResource SecondGreen}" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
-            <TextBox x:Name="LoginT" TextWrapping="Wrap" Text="None" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" Foreground="{DynamicResource MainGreen}" HorizontalScrollBarVisibility="Auto" GotFocus="LoginT_GotFocus" />
+            <TextBox x:Name="LoginT" TextWrapping="Wrap" Text="None" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" Foreground="{DynamicResource MainGreen}" HorizontalScrollBarVisibility="Auto" GotFocus="LoginT_GotFocus" LostFocus="LoginT_LostFocus" />
         </Grid>
         <Grid Margin="0,10,10,9" Grid.Row="2" Grid.Column="1">
             <Rectangle x:Name="Text_box_Login1" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}">
@@ -35,7 +35,7 @@
                 </Rectangle.Effect>
             </Rectangle>
             <Rectangle x:Name="Little_2" Fill="{DynamicResource SecondGreen}" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
-            <TextBox x:Name="NameT" TextWrapping="Wrap" Text="None" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" Foreground="{DynamicResource MainGreen}" HorizontalScrollBarVisibility="Auto" />
+            <TextBox x:Name="NameT" TextWrapping="Wrap" Text="None" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" Foreground="{DynamicResource MainGreen}" HorizontalScrollBarVisibility="Auto" GotFocus="LoginT_GotFocus" LostFocus="LoginT_LostFocus" />
         </Grid>
         <Grid Margin="0,10,10,10" Grid.Row="3" Grid.Column="1">
             <Rectangle x:Name="Text_box_Login2" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}">
@@ -44,7 +44,7 @@
                 </Rectangle.Effect>
             </Rectangle>
             <Rectangle x:Name="Little_3" Fill="{DynamicResource SecondGreen}" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
-            <TextBox x:Name="PassT" TextWrapping="Wrap" Text="None" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" Foreground="{DynamicResource MainGreen}" HorizontalScrollBarVisibility="Auto" />
+            <TextBox x:Name="PassT" TextWrapping="Wrap" Text="None" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" Foreground="{DynamicResource MainGreen}" HorizontalScrollBarVisibility="Auto" GotFocus="LoginT_GotFocus" LostFocus="LoginT_LostFocus"/>
         </Grid>
         <Grid Margin="0,9,10,10" Grid.Row="4" Grid.Column="1">
             <Rectangle x:Name="Text_box_Login3" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}">
@@ -53,22 +53,21 @@
                 </Rectangle.Effect>
             </Rectangle>
             <Rectangle x:Name="Little_4" Fill="{DynamicResource SecondGreen}" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
-            <TextBox x:Name="RPassT" TextWrapping="Wrap" Text="None" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" Foreground="{DynamicResource MainGreen}" HorizontalScrollBarVisibility="Auto" />
+            <TextBox x:Name="RPassT" TextWrapping="Wrap" Text="None" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" Foreground="{DynamicResource MainGreen}" HorizontalScrollBarVisibility="Auto" GotFocus="LoginT_GotFocus" LostFocus="LoginT_LostFocus"/>
         </Grid>
-        <Label Content="Registration" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="48" Foreground="{DynamicResource SecondGreen}" Grid.ColumnSpan="2"/>
-        <Label Content="Login" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" Foreground="{DynamicResource SecondGreen}"/>
-        <Label Content="Name" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" Foreground="{DynamicResource SecondGreen}"/>
-        <Label Content="Password" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Foreground="{DynamicResource SecondGreen}"/>
-        <Label Content="Rep Password" Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="19" Foreground="{DynamicResource SecondGreen}"/>
+        <Label Content="{DynamicResource Registration}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="48" Foreground="{DynamicResource SecondGreen}" Grid.ColumnSpan="2"/>
+        <Label Content="{DynamicResource Login}" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" Foreground="{DynamicResource SecondGreen}"/>
+        <Label Content="{DynamicResource Name}" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" Foreground="{DynamicResource SecondGreen}"/>
+        <Label Content="{DynamicResource Password}" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Foreground="{DynamicResource SecondGreen}"/>
+        <Label Content="{DynamicResource RepPassword}" Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="19" Foreground="{DynamicResource SecondGreen}"/>
         <Grid Grid.Row="5" Grid.ColumnSpan="2" Margin="40,10" MouseUp="Grid_MouseUp">
             <Rectangle x:Name="Log_In_Button" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}">
                 <Rectangle.Effect>
                     <DropShadowEffect x:Name="Drop_shadow_button" Opacity="0.5" BlurRadius="6"/>
                 </Rectangle.Effect>
             </Rectangle>
-            <Label x:Name="LogIn_button_text" Content="{DynamicResource LogIn}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainGreen}" Cursor="Hand"/>
+            <Label x:Name="LogIn_button_text" Content="{DynamicResource Registration}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainGreen}" Cursor="Hand"/>
         </Grid>
-        <Rectangle x:Name="Alarm" Fill="#FFC92D2D" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="38" Margin="24,20,0,0"/>
 
     </Grid>
 </Window>

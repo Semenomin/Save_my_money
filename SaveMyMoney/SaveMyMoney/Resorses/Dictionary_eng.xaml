@@ -18,6 +18,7 @@
     <system:String x:Key="Log_out">LogOut</system:String>
     <SolidColorBrush Color="#FF5CC356" x:Key="SecondGreen" />
     <SolidColorBrush Color="#FF2B6D26" x:Key="MainGreen" />
+    <SolidColorBrush Color="#19000000" x:Key="Trigger" />
     <Style TargetType="TextBox">
         <Setter Property="Template">
             <Setter.Value>
@@ -37,5 +38,19 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <system:String x:Key="Name">Name</system:String>
+    <system:String x:Key="RepPassword">Rep Password</system:String>
+    <system:String x:Key="One_time_income">One-time income</system:String>
+    <system:String x:Key="income_planner">Income planner</system:String>
+    <system:String x:Key="income_name">Income Name</system:String>
+    <system:String x:Key="Money_amount">Money Amount</system:String>
+    <system:String x:Key="Description">Description</system:String>
+    <system:String x:Key="Period">Period</system:String>
+    <system:String x:Key="Onceaweek">Once a week</system:String>
+    <system:String x:Key="Onceaday">Once a day</system:String>
+    <system:String x:Key="Onceayear">Once a year</system:String>
+    <system:String x:Key="Income">Income</system:String>
+
+
 
 </ResourceDictionary>

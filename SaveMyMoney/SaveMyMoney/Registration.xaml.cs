@@ -21,11 +21,21 @@ namespace SaveMyMoney
     /// </summary>
     public partial class Registration : Window
     {
+
         string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
 
-        public Registration()
+        public Registration(string lang)
         {
+            if (lang == "RUS")
+            {
+                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_rus.xaml") };
+            } //смена языка
+            else
+            {
+                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_eng.xaml") };
+            }
             InitializeComponent();
+            
         }
 
 
@@ -47,6 +57,7 @@ namespace SaveMyMoney
                     {
                         if ((string)reader.GetValue(0) == LoginT.Text)
                         {
+                            MessageBox.Show("Invalid Login");
                             good = false;
                             break;
                         };
@@ -58,7 +69,7 @@ namespace SaveMyMoney
                 {
                     if (PassT.Text != RPassT.Text || RPassT.Text == "None")
                     {
-                        Alarm.Visibility = Visibility.Visible;
+                        MessageBox.Show("Pass are not same");
                     }
                     else
                     {
@@ -67,16 +78,23 @@ namespace SaveMyMoney
                         this.Close();
                     }
                 }
-
             }
         }
-        string buff;
+        
         private void LoginT_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox a = sender as TextBox;
-            buff = a.Text;
-            if(a.Text = "None" || )
+            if(a.Text == "None")
             a.Text = "";
+        }
+
+        private void LoginT_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox a = sender as TextBox;
+            if (a.Text == "")
+            {
+                a.Text = "None";
+            }
         }
     }
 }

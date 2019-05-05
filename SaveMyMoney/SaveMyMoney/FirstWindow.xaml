@@ -104,10 +104,10 @@
         </Grid>
         <Grid x:Name="Tool_grid" Grid.Row="3" Grid.ColumnSpan="9" Background="{DynamicResource SecondGreen}">
             <StackPanel Orientation="Horizontal">
-                <Grid HorizontalAlignment="Left" Margin="10,0">
-                    <Label Content="{DynamicResource Settings}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Foreground="{DynamicResource MainGreen}" BorderBrush="{DynamicResource MainGreen}" BorderThickness="0"/>
+                <Grid x:Name="Settings_grid" HorizontalAlignment="Left" Margin="0" MouseEnter="Settings_grid_MouseEnter" MouseLeave="Settings_grid_MouseLeave" MouseUp="Settings_grid_MouseUp" Cursor="Hand">
+                    <Label Content="{DynamicResource Settings}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Foreground="{DynamicResource MainGreen}" BorderBrush="{DynamicResource MainGreen}" BorderThickness="0" Margin="10,0"/>
                 </Grid>
-                <Grid Margin="0,0,129,1">
+                <Grid x:Name="LogOut_grid" Margin="0,0,129,1" Cursor="Hand">
                     <Label Content="{DynamicResource Log_out}" Foreground="{DynamicResource MainGreen}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Margin="10,0"/>
                 </Grid>
             </StackPanel>
@@ -127,8 +127,8 @@
                 <RowDefinition Height="66"/>
                 <RowDefinition Height="46*"/>
             </Grid.RowDefinitions>
-            <Label Content="Разовый доход" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,3,0,0" Grid.Row="1" Grid.RowSpan="2" Height="39" VerticalAlignment="Top" Foreground="{DynamicResource SecondGreen}" FontStyle="Italic"/>
-            <Label Content="Планнер доходов" FontSize="22" Grid.Column="2" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" Height="39" VerticalAlignment="Top" Grid.RowSpan="2" Foreground="{DynamicResource SecondGreen}" FontStyle="Italic">
+            <Label Content="{DynamicResource One_time_income}" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,3,0,0" Grid.Row="1" Grid.RowSpan="2" Height="39" VerticalAlignment="Top" Foreground="{DynamicResource SecondGreen}" FontStyle="Italic"/>
+            <Label Content="{DynamicResource income_planner}" FontSize="22" Grid.Column="2" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" Height="39" VerticalAlignment="Top" Grid.RowSpan="2" Foreground="{DynamicResource SecondGreen}" FontStyle="Italic">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -160,7 +160,7 @@
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
                 <Rectangle x:Name="Little_2" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox TextWrapping="Wrap" Text="Имя дохода" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
+                <TextBox TextWrapping="Wrap" Text="{DynamicResource income_name}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
             </Grid>
             <Grid x:Name="Grid_text_box_2" Margin="0,11" Height="44" Grid.Row="3">
                 <Grid.RowDefinitions>
@@ -168,7 +168,7 @@
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name1" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
                 <Rectangle x:Name="Little_1" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox TextWrapping="Wrap" Text="Сумма" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
+                <TextBox TextWrapping="Wrap" Text="{DynamicResource Money_amount}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
             </Grid>
             <Grid x:Name="Grid_text_box_3" Margin="0,10" Grid.Row="4" Grid.RowSpan="3">
                 <Grid.RowDefinitions>
@@ -176,7 +176,7 @@
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name2" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
                 <Rectangle x:Name="Little_3" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox TextWrapping="Wrap" Text="Описание" FontSize="20" Background="{x:Null}" Padding="20,10,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
+                <TextBox TextWrapping="Wrap" Text="{DynamicResource Description}" FontSize="20" Background="{x:Null}" Padding="20,10,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
             </Grid>
             <Grid x:Name="Grid_text_box_1_Copy" Margin="0,10,-3,11" Grid.Row="2" Height="44" Grid.Column="2">
                 <Grid.RowDefinitions>
@@ -184,7 +184,7 @@
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name3" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
                 <Rectangle x:Name="Little_4" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox TextWrapping="Wrap" Text="Имя дохода" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
+                <TextBox TextWrapping="Wrap" Text="{DynamicResource income_name}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
             </Grid>
             <Grid x:Name="Grid_text_box_2_Copy" Margin="0,11,-3,11" Height="44" Grid.Row="3" Grid.Column="2">
                 <Grid.RowDefinitions>
@@ -192,7 +192,7 @@
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name4" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
                 <Rectangle x:Name="Little_5" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox TextWrapping="Wrap" Text="Сумма" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
+                <TextBox TextWrapping="Wrap" Text="{DynamicResource Money_amount}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
             </Grid>
             <Grid x:Name="Grid_text_box_3_Copy" Margin="0,10,-3,10" Grid.Row="5" Grid.Column="2" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
@@ -200,17 +200,34 @@
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name5" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
                 <Rectangle x:Name="Little_6" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox TextWrapping="Wrap" Text="Описание" FontSize="20" Background="{x:Null}" Padding="20,10,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0" Loaded="TextBox_Loaded"/>
+                <TextBox TextWrapping="Wrap" Text="{DynamicResource Description}" FontSize="20" Background="{x:Null}" Padding="20,10,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0" Loaded="TextBox_Loaded"/>
             </Grid>
-            <Grid x:Name="Grid_text_box_3_Copy1" Margin="0,10,-3,9" Grid.Row="4" Grid.Column="2">
+            <Grid x:Name="Grid_text_box_3_Copy1" Margin="0,10,-3,9" Grid.Row="4" Grid.Column="2" MouseUp="Grid_text_box_3_Copy1_MouseUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name6" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
-                <Rectangle x:Name="Little_7" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox TextWrapping="Wrap" Text="Период" FontSize="20" Background="{x:Null}" Padding="20,10,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0" Loaded="TextBox_Loaded"/>
+                <Label x:Name="PeriodT" Content="{DynamicResource Period}" Margin="40,0" Height="46" Width="277" VerticalContentAlignment="Center" UseLayoutRounding="False" Padding="25,0,0,0" FontSize="20" Foreground="{DynamicResource MainGreen}" Cursor="Hand"/>
             </Grid>
+            <StackPanel x:Name="Period" Grid.Column="2" Margin="41,0,38,0" Grid.Row="4" Grid.RowSpan="2" VerticalAlignment="Bottom" Background="{DynamicResource SecondGreen}" Visibility="Hidden">
+                <Grid x:Name="Period_grid" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100">
+                    <Grid x:Name="Onceaweek" Margin="0,0,-175,61">
+                        <Label Content="{DynamicResource Onceaday}" VerticalContentAlignment="Center" FontSize="20" Padding="25,5,5,5" Foreground="{DynamicResource MainGreen}" MouseUp="Label_MouseUp"/>
+                    </Grid>
+                    <Grid x:Name="Onceamonth" Margin="0,39,-175,22">
+                        <Label Content="{DynamicResource Onceaweek}" VerticalContentAlignment="Center" FontSize="20" Padding="25,5,5,5" Foreground="{DynamicResource MainGreen}" MouseUp="Label_MouseUp"/>
+                    </Grid>
+                    <Grid x:Name="Onceayear" Margin="0,78,-175,-17">
+                        <Label Content="{DynamicResource Onceayear}" VerticalContentAlignment="Center" FontSize="20" Padding="25,5,5,5" Foreground="{DynamicResource MainGreen}" MouseUp="Label_MouseUp"/>
+                    </Grid>
+                </Grid>
+            </StackPanel>
         </Grid>
+        <StackPanel x:Name="Settings" Background="{DynamicResource SecondGreen}" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Left" Width="252" Height="174" VerticalAlignment="Bottom" Visibility="Hidden">
+            <Grid x:Name="Language_grid" Cursor="Hand" Height="48" MouseUp="Language_grid_MouseUp">
+                <Label x:Name="Language" Content="{DynamicResource Language}" VerticalContentAlignment="Center" FontSize="18" Padding="20,5,5,5" Foreground="{DynamicResource MainGreen}" Background="{x:Null}"/>
+            </Grid>
+        </StackPanel>
 
     </Grid>
 </Window>

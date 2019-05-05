@@ -9,7 +9,7 @@
     <Grid>
         <Rectangle Fill="#FFDA2E2E" RadiusY="39" RadiusX="39"/>
         <Rectangle Fill="#FFDA2E2E" Margin="0,0,0,52"/>
-        <Label Content="Доход" FontSize="36" Foreground="White" FontFamily="TypoUpright BT" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="{DynamicResource Income}" FontSize="36" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
     </Grid>
 </UserControl>
