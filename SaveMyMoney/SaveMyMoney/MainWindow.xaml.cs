@@ -12,16 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace SaveMyMoney
 {
+
+   
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
         string style = "ThemesDark";
         string lang = "ENG";
+        object id;
 
         public MainWindow()
         {
@@ -179,9 +184,33 @@ namespace SaveMyMoney
         }
         private void LogIn_button_text_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            FirstWindow firstWindow = new FirstWindow(style,lang);
-            firstWindow.Show();
-            this.Close();
+            string sqlExpression = $"Select Id from Users where Login_text like '{Text_box_Login_text.Text}' and Password_text like '{Text_box_password_text.Text}'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows) // если есть данные
+                {
+                    while (reader.Read()) // построчно считываем данные
+                    {
+                        id = reader.GetValue(0);
+                    }
+                    FirstWindow firstWindow = new FirstWindow(style, lang);
+                    firstWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    //Alarm.Visibility = Visibility.Visible;
+                }
+                reader.Close();
+            }
+
+
+
+          
         }
         #endregion
         #region Изменение работа с текстом внутри TextBox
@@ -212,10 +241,28 @@ namespace SaveMyMoney
 
 
         #endregion
-
         private void Text_box_password_text_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+
+        private void Label_MouseEnter(object sender, MouseEventArgs e)
+        {
+            
+            
+        }
+
+        private void Label_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Label_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Registration reg = new Registration();
+            reg.ShowDialog();
+        }
     }
+
+    
 }

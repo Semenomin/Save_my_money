@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:SaveMyMoney"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="750" MaxWidth="750" MaxHeight="500" Padding="20" MinWidth="750" MinHeight="500" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" WindowStyle="None">
+  
     <Grid x:Name="Main_grid" Background="{DynamicResource MainGreen}">
         <Grid.RowDefinitions>
             <RowDefinition Height="498"/>
@@ -44,7 +45,7 @@
                 <DropShadowEffect x:Name="Shadow_light" Opacity="0.5"/>
             </Image.Effect>
         </Image>
-        <Ellipse x:Name="Button_close" Fill="{DynamicResource SecondGreen}" Height="47" Margin="670,25,25,426" Width="47" MouseEnter="Button_close_MouseEnter" MouseLeave="Button_close_MouseLeave" Cursor="Hand" MouseUp="Button_close_MouseUp">
+        <Ellipse x:Name="Button_close" Fill="{DynamicResource SecondGreen}" Height="47" Margin="670,25,25,426" Width="47" MouseEnter="Button_close_MouseEnter" MouseLeave="Button_close_MouseLeave" Cursor="Hand" MouseUp="Button_close_MouseUp" >
             <Ellipse.Effect>
                 <DropShadowEffect x:Name="Close_Button_Shadow" Opacity="0.5"/>
             </Ellipse.Effect>
@@ -65,5 +66,6 @@
                 <DropShadowEffect x:Name="Forever_shadow" Opacity="0.5"/>
             </Label.Effect>
         </Label>
+        <Label Content="Registration" HorizontalAlignment="Left" Margin="306,443,0,16" Cursor="Hand" FontSize="22" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource SecondGreen}" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseUp="Label_MouseUp"/>
     </Grid>
 </Window>

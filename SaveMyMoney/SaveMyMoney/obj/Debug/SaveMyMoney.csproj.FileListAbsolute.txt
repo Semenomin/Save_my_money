@@ -48,3 +48,5 @@ D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.csproj.CoreCompileInputs.cache
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\User Controls\Main_menu_button.g.cs
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\User Controls\Main_menu_button.baml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Registration.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Registration.baml

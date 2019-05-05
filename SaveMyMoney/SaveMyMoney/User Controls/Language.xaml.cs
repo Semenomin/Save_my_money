@@ -22,9 +22,11 @@ namespace SaveMyMoney
     {
         string lang = "ENG";
         string style = "Dark";
+
         public Language()
         {
             InitializeComponent();
+          
         }
 
         private void Language_button_MouseEnter(object sender, MouseEventArgs e)

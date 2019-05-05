@@ -114,10 +114,9 @@
         </Grid>
         <Grid x:Name="MoneyIn" Grid.ColumnSpan="9" Grid.RowSpan="3" Panel.ZIndex="-1" Margin="0,49,2,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="358*"/>
-                <ColumnDefinition Width="83*"/>
-                <ColumnDefinition Width="87*"/>
-                <ColumnDefinition Width="355*"/>
+                <ColumnDefinition Width="357*"/>
+                <ColumnDefinition Width="170*"/>
+                <ColumnDefinition Width="354*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="33*"/>
@@ -129,7 +128,7 @@
                 <RowDefinition Height="46*"/>
             </Grid.RowDefinitions>
             <Label Content="Разовый доход" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,3,0,0" Grid.Row="1" Grid.RowSpan="2" Height="39" VerticalAlignment="Top" Foreground="{DynamicResource SecondGreen}" FontStyle="Italic"/>
-            <Label Content="Планнер доходов" FontSize="22" Grid.Column="3" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" Height="39" VerticalAlignment="Top" Grid.RowSpan="2" Foreground="{DynamicResource SecondGreen}" FontStyle="Italic">
+            <Label Content="Планнер доходов" FontSize="22" Grid.Column="2" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" Height="39" VerticalAlignment="Top" Grid.RowSpan="2" Foreground="{DynamicResource SecondGreen}" FontStyle="Italic">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -139,23 +138,23 @@
                     </TransformGroup>
                 </Label.RenderTransform>
             </Label>
-            <Grid x:Name="Grid_moneyIn_menu_button_1" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1">
+            <Grid x:Name="Grid_moneyIn_menu_button_1" Grid.Row="2" Grid.Column="1">
                 <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="0,5"/>
                 <Label Content="История" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainGreen}" Cursor="Hand"/>
             </Grid>
-            <Grid x:Name="Grid_moneyIn_menu_button_2" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1">
+            <Grid x:Name="Grid_moneyIn_menu_button_2" Grid.Row="3" Grid.Column="1">
                 <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="0,5"/>
                 <Label Content="Планы" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainGreen}" Cursor="Hand"/>
             </Grid>
-            <Grid x:Name="Grid_moneyIn_menu_button_3" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="1">
+            <Grid x:Name="Grid_moneyIn_menu_button_3" Grid.Row="4" Grid.Column="1">
                 <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="0,5"/>
                 <Label Content="Добавить" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainGreen}" Cursor="Hand"/>
             </Grid>
-            <Grid x:Name="Grid_moneyIn_menu_button_4" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="1" Margin="0">
+            <Grid x:Name="Grid_moneyIn_menu_button_4" Grid.Row="5" Grid.Column="1" Margin="0">
                 <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="0,5"/>
                 <Label Content="Граффики" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainGreen}" Cursor="Hand"/>
             </Grid>
-            <Grid x:Name="Grid_text_box_1" Margin="0" Grid.Row="2" Height="44">
+            <Grid x:Name="Grid_text_box_1" Margin="0,10,0,11" Grid.Row="2" Height="44">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -179,7 +178,7 @@
                 <Rectangle x:Name="Little_3" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
                 <TextBox TextWrapping="Wrap" Text="Описание" FontSize="20" Background="{x:Null}" Padding="20,10,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
             </Grid>
-            <Grid x:Name="Grid_text_box_1_Copy" Margin="0,10,-3,11" Grid.Row="2" Height="44" Grid.Column="3">
+            <Grid x:Name="Grid_text_box_1_Copy" Margin="0,10,-3,11" Grid.Row="2" Height="44" Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -187,7 +186,7 @@
                 <Rectangle x:Name="Little_4" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
                 <TextBox TextWrapping="Wrap" Text="Имя дохода" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
             </Grid>
-            <Grid x:Name="Grid_text_box_2_Copy" Margin="0,11,-3,11" Height="44" Grid.Row="3" Grid.Column="3">
+            <Grid x:Name="Grid_text_box_2_Copy" Margin="0,11,-3,11" Height="44" Grid.Row="3" Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -195,7 +194,7 @@
                 <Rectangle x:Name="Little_5" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
                 <TextBox TextWrapping="Wrap" Text="Сумма" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
             </Grid>
-            <Grid x:Name="Grid_text_box_3_Copy" Margin="0,10,-3,10" Grid.Row="5" Grid.Column="3" Grid.RowSpan="2">
+            <Grid x:Name="Grid_text_box_3_Copy" Margin="0,10,-3,10" Grid.Row="5" Grid.Column="2" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -203,7 +202,7 @@
                 <Rectangle x:Name="Little_6" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
                 <TextBox TextWrapping="Wrap" Text="Описание" FontSize="20" Background="{x:Null}" Padding="20,10,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0" Loaded="TextBox_Loaded"/>
             </Grid>
-            <Grid x:Name="Grid_text_box_3_Copy1" Margin="0,10,-3,9" Grid.Row="4" Grid.Column="3">
+            <Grid x:Name="Grid_text_box_3_Copy1" Margin="0,10,-3,9" Grid.Row="4" Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
