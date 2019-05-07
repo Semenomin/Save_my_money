@@ -3,6 +3,28 @@
                     xmlns:local="clr-namespace:SaveMyMoney"
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
                     >
+    <SolidColorBrush Color="#FF5CC356" x:Key="SecondGreen" />
+    <SolidColorBrush Color="#FF2B6D26" x:Key="MainGreen" />
+    <SolidColorBrush Color="#19000000" x:Key="Trigger" />
+    <Style TargetType="TextBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <system:String x:Key="Login">Login</system:String>
     <system:String x:Key="Password">Password</system:String>
     <system:String x:Key="Registration">Registration</system:String>
@@ -32,38 +54,10 @@
     <system:String x:Key="Planner">Planner</system:String>
     <system:String x:Key="Add">Add</system:String>
     <system:String x:Key="Charts">Charts</system:String>
-
-
-
-
-
-
-
-
-
-
-
-
-    <SolidColorBrush Color="#FF5CC356" x:Key="SecondGreen" />
-    <SolidColorBrush Color="#FF2B6D26" x:Key="MainGreen" />
-    <SolidColorBrush Color="#19000000" x:Key="Trigger" />
-    <Style TargetType="TextBox">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
-                        </Trigger>
-                        <Trigger Property="IsFocused" Value="true">
-                            <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+    <system:String x:Key="Jar1_lab">Necessity Account (NEC - 55%)</system:String>
+    <system:String x:Key="Jar2_lab">Play Account (PLY - 10%)</system:String>
+    <system:String x:Key="Jar3_lab">Financial Freedom Account (FFA - 10%)</system:String>
+    <system:String x:Key="Jar4_lab">Education Account (EDU - 10%)</system:String>
+    <system:String x:Key="Jar5_lab">Long-term saving for spending (LTS - 10%)</system:String>
+    <system:String x:Key="Jar6_lab">Give Account (GIV - 5%)</system:String>
 </ResourceDictionary>

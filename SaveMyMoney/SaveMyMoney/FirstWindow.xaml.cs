@@ -24,7 +24,8 @@ namespace SaveMyMoney
         List<Grid> grids = new List<Grid>(); //массив гридов для эффектов
         string bufer;
         string lang;
-
+        int jar;
+        List<Label> jar_lab = new List<Label>();
         public FirstWindow(string lang)
         {
             this.lang = lang;
@@ -39,6 +40,18 @@ namespace SaveMyMoney
 
                 InitializeComponent();
 
+            Grid_Menu_Button_1.MouseUp += Grid_Menu_Button_1_MouseUp;
+            Grid_Menu_Button_1.MouseUp += Jar1_switch;
+            Grid_Menu_Button_2.MouseUp += Grid_Menu_Button_1_MouseUp;
+            Grid_Menu_Button_2.MouseUp += Jar2_switch;
+            Grid_Menu_Button_3.MouseUp += Grid_Menu_Button_1_MouseUp;
+            Grid_Menu_Button_3.MouseUp += Jar3_switch;
+            Grid_Menu_Button_4.MouseUp += Grid_Menu_Button_1_MouseUp;
+            Grid_Menu_Button_4.MouseUp += Jar4_switch;
+            Grid_Menu_Button_5.MouseUp += Grid_Menu_Button_1_MouseUp;
+            Grid_Menu_Button_5.MouseUp += Jar5_switch;
+            Grid_Menu_Button_6.MouseUp += Grid_Menu_Button_1_MouseUp;
+            Grid_Menu_Button_6.MouseUp += Jar6_switch;
 
             DropShadowEffect Shadow_50_ = Shadow_50;
             DropShadowEffect Shadow_none_ = Shadow_none;
@@ -59,7 +72,22 @@ namespace SaveMyMoney
             grids.Add(Grid_text_box_2_Copy);
             grids.Add(Grid_text_box_3_Copy);
             grids.Add(Grid_text_box_3_Copy1);
+            grids.Add(Expense_Name_t);
+            grids.Add(Expense_Money_t);
+            grids.Add(Expense_Desc_t);
+            grids.Add(Expense_Hist_btn);
+            grids.Add(Expense_Plan_btn);
+            grids.Add(Expense_Add_btn);
+
+
             
+            jar_lab.Add(jar1_lab);
+            jar_lab.Add(jar2_lab);
+            jar_lab.Add(jar3_lab);
+            jar_lab.Add(jar4_lab);
+            jar_lab.Add(jar5_lab);
+            jar_lab.Add(jar6_lab);
+
 
             foreach (Grid item in grids) //события изменения эффекта тени для всех гридов в массиве
             {
@@ -110,8 +138,69 @@ namespace SaveMyMoney
 
         private void Grid_Menu_Button_1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-         
-           
+            MoneyIn.Visibility = Visibility.Hidden;
+            Bottle.Visibility = Visibility.Visible;
+        }
+
+        private void Jar1_switch(object sender, MouseButtonEventArgs e)
+        {
+            jar = 1;
+            foreach (Label a in jar_lab)
+            {
+                a.Visibility = Visibility.Hidden;
+            }
+            jar1_lab.Visibility = Visibility.Visible;
+
+        }
+
+        private void Jar2_switch(object sender, MouseButtonEventArgs e)
+        {
+            jar = 2;
+            foreach (Label a in jar_lab)
+            {
+                a.Visibility = Visibility.Hidden;
+            }
+            jar2_lab.Visibility = Visibility.Visible;
+        }
+
+        private void Jar3_switch(object sender, MouseButtonEventArgs e)
+        {
+            jar = 3;
+            foreach (Label a in jar_lab)
+            {
+                a.Visibility = Visibility.Hidden;
+            }
+            jar3_lab.Visibility = Visibility.Visible;
+        }
+
+        private void Jar4_switch(object sender, MouseButtonEventArgs e)
+        {
+            jar = 4;
+            foreach (Label a in jar_lab)
+            {
+                a.Visibility = Visibility.Hidden;
+            }
+            jar4_lab.Visibility = Visibility.Visible;
+        }
+
+        private void Jar5_switch(object sender, MouseButtonEventArgs e)
+        {
+            jar = 5;
+            foreach (Label a in jar_lab)
+            {
+                a.Visibility = Visibility.Hidden;
+            }
+            jar5_lab.Visibility = Visibility.Visible;
+        }
+
+        private void Jar6_switch(object sender, MouseButtonEventArgs e)
+        {
+            jar = 6;
+            foreach (Label a in jar_lab)
+            {
+                a.Visibility = Visibility.Hidden;
+            }
+            jar6_lab.Visibility = Visibility.Visible;
         }
 
         private void Grid_Menu_Button_1_MouseEnter(object sender, MouseEventArgs e)
@@ -204,6 +293,12 @@ namespace SaveMyMoney
             Label label = sender as Label;
             PeriodT.Content = label.Content;
             Period.Visibility = Visibility.Hidden;
+        }
+
+        private void Main_center_button_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MoneyIn.Visibility = Visibility.Visible;
+            Bottle.Visibility = Visibility.Hidden;
         }
     }
 }
