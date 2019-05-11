@@ -27,7 +27,6 @@ namespace SaveMyMoney
   
         string lang = "ENG";
         object id;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -110,7 +109,6 @@ namespace SaveMyMoney
         {
             this.Close();
         }
-        
         private void Лампочка_green_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e) //изменение стилей
         {
            
@@ -150,11 +148,15 @@ namespace SaveMyMoney
                 {
                     while (reader.Read()) // построчно считываем данные
                     {
-                        id = reader.GetValue(0);
+                        if (reader.GetValue(0) != null)
+                        {
+                            id = reader.GetValue(0);
+                        }
+                       
                     }
-                    FirstWindow firstWindow = new FirstWindow(lang);
+                    FirstWindow firstWindow = new FirstWindow(lang,id);
                     firstWindow.Show();
-                    this.Close();
+                    //this.Close();
                 }
                 else
                 {

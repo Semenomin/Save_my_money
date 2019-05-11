@@ -60,4 +60,7 @@
     <system:String x:Key="Jar4_lab">Education Account (EDU - 10%)</system:String>
     <system:String x:Key="Jar5_lab">Long-term saving for spending (LTS - 10%)</system:String>
     <system:String x:Key="Jar6_lab">Give Account (GIV - 5%)</system:String>
+    <system:String x:Key="ExpenceName">Expense Name</system:String>
+    <system:String x:Key="Onceamonth">Once a month</system:String>
+    <system:String x:Key="none">None</system:String>
 </ResourceDictionary>

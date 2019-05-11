@@ -59,5 +59,7 @@
     <system:String x:Key="Jar4_lab">Расходы на образование (EDU - 10%)</system:String>
     <system:String x:Key="Jar5_lab">Резервный фонд (LTS - 10%)</system:String>
     <system:String x:Key="Jar6_lab">Расходы на подарки (GIV - 5%)</system:String>
-
+    <system:String x:Key="ExpenceName">Имя расхода</system:String>
+    <system:String x:Key="Onceamonth">Раз в месяц</system:String>
+    <system:String x:Key="none">Пусто</system:String>
 </ResourceDictionary>

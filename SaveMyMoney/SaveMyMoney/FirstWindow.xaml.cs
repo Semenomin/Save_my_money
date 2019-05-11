@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace SaveMyMoney
 {
@@ -25,9 +26,11 @@ namespace SaveMyMoney
         string bufer;
         string lang;
         int jar;
+        object id;
         List<Label> jar_lab = new List<Label>();
-        public FirstWindow(string lang)
+        public FirstWindow(string lang, object id)
         {
+            this.id = id;
             this.lang = lang;
             if (lang == "RUS")
             { 
@@ -39,7 +42,7 @@ namespace SaveMyMoney
             }
 
                 InitializeComponent();
-
+            
             Grid_Menu_Button_1.MouseUp += Grid_Menu_Button_1_MouseUp;
             Grid_Menu_Button_1.MouseUp += Jar1_switch;
             Grid_Menu_Button_2.MouseUp += Grid_Menu_Button_1_MouseUp;
@@ -65,9 +68,6 @@ namespace SaveMyMoney
             grids.Add(Grid_moneyIn_menu_button_2);
             grids.Add(Grid_moneyIn_menu_button_3);
             grids.Add(Grid_moneyIn_menu_button_4);
-            grids.Add(Grid_text_box_1);
-            grids.Add(Grid_text_box_2);
-            grids.Add(Grid_text_box_3);
             grids.Add(Grid_text_box_1_Copy);
             grids.Add(Grid_text_box_2_Copy);
             grids.Add(Grid_text_box_3_Copy);
@@ -78,9 +78,9 @@ namespace SaveMyMoney
             grids.Add(Expense_Hist_btn);
             grids.Add(Expense_Plan_btn);
             grids.Add(Expense_Add_btn);
+            grids.Add(Expense_Period);
 
 
-            
             jar_lab.Add(jar1_lab);
             jar_lab.Add(jar2_lab);
             jar_lab.Add(jar3_lab);
@@ -102,6 +102,14 @@ namespace SaveMyMoney
             grids_menu.Add(Onceamonth);
             grids_menu.Add(Onceaweek);
             grids_menu.Add(Onceayear);
+            grids_menu.Add(Onceaday1);
+            grids_menu.Add(Onceamonth1);
+            grids_menu.Add(Onceaweek1);
+            grids_menu.Add(Onceayear1);
+            grids_menu.Add(None);
+            grids_menu.Add(None1);
+
+
 
             foreach (Grid item in grids_menu) //события изменения эффекта тени для всех гридов в массиве
             {
@@ -299,6 +307,46 @@ namespace SaveMyMoney
         {
             MoneyIn.Visibility = Visibility.Visible;
             Bottle.Visibility = Visibility.Hidden;
+        }
+
+        private void Expense_Period_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            PeriodT1.Content = "";
+            Period_expense.Visibility = Visibility.Visible;
+        }
+
+        private void Label1_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Label label = sender as Label;
+            PeriodT1.Content = label.Content;
+            Period_expense.Visibility = Visibility.Hidden;
+        }
+
+        private void Label_MouseUp_1(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+        string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
+
+        private void Grid_moneyIn_menu_button_3_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            
+            string sqlExpression = $"INSERT INTO Income (Id_user,Name_income,Money_amount,Desc_income,Period_income,Date_income) values('{id}','{Income_nameT.Text}','{Income_amountT.Text}','{Income_DescT.Text}','{PeriodT.Content}',GETDATE());";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                int a = command.ExecuteNonQuery();   
+            }
+            MessageBox.Show("Good!!");
+        }
+
+            private void Grid_moneyIn_menu_button_1_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            History history = new History(id);
+            history.Show();
         }
     }
 }

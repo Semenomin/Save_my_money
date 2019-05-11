@@ -43,8 +43,10 @@ namespace SaveMyMoney
         private void Grid_MouseUp(object sender, MouseButtonEventArgs e)
         {
             bool good = true;
+            object id=0;
             string sqlExpression1 = $"INSERT INTO Users (Login_text,Password_text,Name_user) VALUES ('{LoginT.Text}', '{PassT.Text}', '{NameT.Text}')";
             string sqlExpression2 = $"Select Login_text from Users";
+            
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -74,7 +76,25 @@ namespace SaveMyMoney
                     else
                     {
                         SqlCommand command2 = new SqlCommand(sqlExpression1, connection);
-                        int number = command2.ExecuteNonQuery();
+                        command2.ExecuteNonQuery();
+                        string sqlExpression3 = $"Select Id from Users where Login_text like '{LoginT.Text}'";
+                        SqlCommand command3 = new SqlCommand(sqlExpression3, connection);
+                        SqlDataReader reader1 = command3.ExecuteReader();
+
+                        if (reader1.HasRows) // если есть данные
+                        {
+                            while (reader1.Read()) // построчно считываем данные
+                            { 
+                                    id = reader1.GetValue(0);
+                            }
+                        }
+                        reader1.Close();
+                        for (int a = 1; a <= 6; a++)
+                        {
+                            string sqlExpression4 = $"INSERT INTO Jars (Id_user,Jar_num,Money_in_jar) VALUES ({id},'{a}','0')";
+                            SqlCommand command4 = new SqlCommand(sqlExpression4, connection);
+                            int num = command4.ExecuteNonQuery();
+                        }
                         this.Close();
                     }
                 }

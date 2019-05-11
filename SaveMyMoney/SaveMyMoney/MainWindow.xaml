@@ -62,5 +62,6 @@
             </Label.Effect>
         </Label>
         <Label Content="{DynamicResource Registration}" HorizontalAlignment="Left" Margin="306,443,0,16" Cursor="Hand" FontSize="22" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource SecondGreen}" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseUp="Label_MouseUp"/>
+        <Label x:Name="Iddd" Content="Label" HorizontalAlignment="Left" Margin="0,462,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
