@@ -52,3 +52,9 @@ D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Registration
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Registration.baml
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\History.g.cs
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\History.baml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\MaterialDesignColors.dll
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\MaterialDesignColors.pdb
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.csproj.CopyComplete

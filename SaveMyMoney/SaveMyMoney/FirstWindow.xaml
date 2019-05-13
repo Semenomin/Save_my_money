@@ -23,9 +23,9 @@
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="82*"/>
-            <RowDefinition Height="18*"/>
-            <RowDefinition Height="327*"/>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="361*"/>
             <RowDefinition Height="46"/>
         </Grid.RowDefinitions>
         <User_Controls:Main_center_button Grid.ColumnSpan="3" Grid.Column="3" Grid.RowSpan="2" Width="Auto" Height="Auto" Panel.ZIndex="1" BorderThickness="0" Cursor="Hand" MouseUp="Main_center_button_MouseUp"/>
