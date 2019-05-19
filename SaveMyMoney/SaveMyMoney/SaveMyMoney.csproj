@@ -72,6 +72,7 @@
     <Compile Include="Models\DebtModel.cs" />
     <Compile Include="Models\ExpenseModel.cs" />
     <Compile Include="Models\IncomeModel.cs" />
+    <Compile Include="Models\PlannerModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Registration.xaml.cs">

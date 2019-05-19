@@ -45,7 +45,7 @@
     <system:String x:Key="income_name">Income Name</system:String>
     <system:String x:Key="Money_amount">Money Amount</system:String>
     <system:String x:Key="Description">Description</system:String>
-    <system:String x:Key="Period">Period</system:String>
+    <system:String x:Key="Period">Period in days</system:String>
     <system:String x:Key="Onceaweek">Once a week</system:String>
     <system:String x:Key="Onceaday">Once a day</system:String>
     <system:String x:Key="Onceayear">Once a year</system:String>
@@ -64,4 +64,7 @@
     <system:String x:Key="Onceamonth">Once a month</system:String>
     <system:String x:Key="none">None</system:String>
     <system:String x:Key="Creator">Creator</system:String>
+    <system:String x:Key="Delete">Delete</system:String>
+    <system:String x:Key="Update">Update</system:String>
+    <system:String x:Key="ExpensePlanner">Expense planner</system:String>
 </ResourceDictionary>

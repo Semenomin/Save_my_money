@@ -44,7 +44,7 @@
     <system:String x:Key="income_name">Имя дохода</system:String>
     <system:String x:Key="Money_amount">Денежная сумма</system:String>
     <system:String x:Key="Description">Описание</system:String>
-    <system:String x:Key="Period">Период</system:String>
+    <system:String x:Key="Period">Период в днях</system:String>
     <system:String x:Key="Onceaweek">Раз в неделю</system:String>
     <system:String x:Key="Onceaday">Раз в день</system:String>
     <system:String x:Key="Onceayear">Раз в год</system:String>
@@ -63,5 +63,6 @@
     <system:String x:Key="Onceamonth">Раз в месяц</system:String>
     <system:String x:Key="none">Пусто</system:String>
     <system:String x:Key="Creator">О создателе</system:String>
-
+    <system:String x:Key="Delete">Удалить</system:String>
+    <system:String x:Key="Update">Обновить</system:String>
 </ResourceDictionary>

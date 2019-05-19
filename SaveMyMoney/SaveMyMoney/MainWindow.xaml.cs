@@ -106,96 +106,13 @@ namespace SaveMyMoney
                 return null;
             }
         }
-        private IncomeModel  GetIncomeMOdel (UserModel model)
-        {
-            string sqlExpression = $"Select * from Income where Id_user = '{model.Id}'";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        return new IncomeModel()
-                        {
-                            Id = int.Parse(reader.GetValue(0).ToString()),
-                            Date = reader.GetValue(6).ToString(),
-                            Money = float.Parse(reader.GetValue(3).ToString()),
-                            Name = reader.GetValue(2).ToString(),
-                            Description = reader.GetValue(4).ToString(),
-                            Period = int.Parse(reader.GetValue(5).ToString())
-                        };
-                    }
-                }
-                return null;
-            }
-        }
-        private ExpenseModel GetExpenseModel(UserModel model)
-        {
-            string sqlExpression = $"Select * from Expense where Id_user = '{model.Id}'";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        return new ExpenseModel()
-                        {
-                            Id = int.Parse(reader.GetValue(0).ToString()),
-                            Date = reader.GetValue(6).ToString(),
-                            Money = float.Parse(reader.GetValue(3).ToString()),
-                            Name = reader.GetValue(2).ToString(),
-                            Description = reader.GetValue(4).ToString(),
-                            Period = int.Parse(reader.GetValue(5).ToString())
-                        };
-                    }
-                }
-                return null;
-            }
-        }
-        private DebtModel    GetDebtModel   (UserModel model)
-        {
-            string sqlExpression = $"Select * from Debts where Id_user = '{model.Id}'";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        return new DebtModel()
-                        {
-                            Id = int.Parse(reader.GetValue(0).ToString()),
-                            From_who = reader.GetValue(2).ToString(),
-                            Date = reader.GetValue(3).ToString(),
-                            Expence = int.Parse(reader.GetValue(4).ToString()),
-                            Income = int.Parse(reader.GetValue(5).ToString()),
-                            Return_Date = reader.GetValue(6).ToString(),
-                            Jar = int.Parse(reader.GetValue(7).ToString()),
-                            Description = reader.GetValue(8).ToString(),
-                        };
-                    }
-                }
-                return null;
-            }
-        }
 
         private void Login               (object sender, MouseButtonEventArgs e)
         {
             try
             {
                 UserModel User = GetUserModel();
-                IncomeModel Income = GetIncomeMOdel(User);
-                ExpenseModel Expense = GetExpenseModel(User);
-                DebtModel Debt = GetDebtModel(User);
-                FirstWindow firstWindow = new FirstWindow(lang, User, Income, Expense, Debt);
+                FirstWindow firstWindow = new FirstWindow(lang, User);
                 firstWindow.Show();
                 this.Close();
             }
@@ -245,7 +162,20 @@ namespace SaveMyMoney
             if (Text_box_password_text.Text == "")
                 Text_box_password_text.Text = this.TryFindResource("Password").ToString();
         }
-       
+        private void ColculatePlanner()
+        {
+            string sqlExpression = $"exec UpdatePeriod";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        private void LogIn_form_Loaded(object sender, RoutedEventArgs e)
+        {
+            ColculatePlanner();
+        }
     }
 }
-
