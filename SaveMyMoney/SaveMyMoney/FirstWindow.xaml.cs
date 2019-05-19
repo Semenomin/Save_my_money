@@ -16,58 +16,197 @@ using System.Data.SqlClient;
 
 namespace SaveMyMoney
 {
-    /// <summary>
-    /// Логика взаимодействия для FirstWindow.xaml
-    /// </summary>
+  
     public partial class FirstWindow : Window
     {
-        List<Grid> grids_menu = new List<Grid>();
-        List<Grid> grids = new List<Grid>(); //массив гридов для эффектов
-        string bufer;
+        List<Grid> ListShadowEffect     = new List<Grid>();
+        List<Grid> ListTriggerEffect    = new List<Grid>();
+        List<Grid> ListVisibilityEffect = new List<Grid>();
+
         string lang;
-        int jar;
-        object id;
-        List<Label> jar_lab = new List<Label>();
-        public FirstWindow(string lang, object id)
+
+        DropShadowEffect Shadow_Enter = new DropShadowEffect()
         {
-            this.id = id;
-            this.lang = lang;
-            if (lang == "RUS")
-            { 
+            BlurRadius = 6,
+            Direction = 315,
+            Opacity = 0,
+            ShadowDepth = 5
+        };
+        DropShadowEffect Shadow_Leave = new DropShadowEffect()
+        {
+            BlurRadius = 6,
+            Direction = 315,
+            Opacity = 0.5,
+            ShadowDepth = 5
+        };
+
+        private void ShadowEffect_Enter(object sender, MouseEventArgs e)
+        {
+            Grid a = sender as Grid;
+            a.Effect = Shadow_Enter;
+        }
+        private void ShadowEffect_Leave(object sender, MouseEventArgs e)
+        {
+            Grid a = sender as Grid;
+            a.Effect = Shadow_Leave;
+        }
+
+        private void TriggerEffect_Enter (object sender, MouseEventArgs e)
+        {
+            Grid a = sender as Grid;
+            a.Opacity = 0.5;
+        }
+        private void TriggerEffect_Leave (object sender, MouseEventArgs e)
+        {
+            Grid a = sender as Grid;
+            a.Opacity = 1;
+        }
+
+        private void SettingsMenuAppear(object sender, MouseButtonEventArgs e)
+        {
+            if (SettingsMenu.Visibility == Visibility.Visible)
+            {
+                SettingsMenu.Visibility = Visibility.Hidden;
+            }
+            else SettingsMenu.Visibility = Visibility.Visible;
+        }
+        private void ChangeLang        (object sender, MouseButtonEventArgs e)
+        {
+            if (lang == "ENG")
+            {
+                lang = "RUS";
                 this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_rus.xaml") };
-            } //смена языка
+            }
+            else
+            {
+                lang = "ENG";
+                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_eng.xaml") };
+            }
+        }
+        private void OpenCreatorWindow (object sender, MouseButtonEventArgs e)
+        {
+            Creator creat = new Creator();
+            creat.ShowDialog();
+        }
+
+        private void AddToListTriggerEffect()
+        {
+            ListTriggerEffect.Add(Menu1);
+            ListTriggerEffect.Add(Menu2);
+            ListTriggerEffect.Add(Menu3);
+            ListTriggerEffect.Add(Menu4);
+            ListTriggerEffect.Add(Menu5);
+            ListTriggerEffect.Add(Menu6);
+            ListTriggerEffect.Add(Menu7);
+            ListTriggerEffect.Add(Creator);
+            ListTriggerEffect.Add(Language_grid);
+            ListTriggerEffect.Add(Settings_grid);
+            ListTriggerEffect.Add(LogOut_grid);
+
+        }
+        private void AddEventsToListTriggerEffect()
+        {
+            foreach (Grid a in ListTriggerEffect)
+            {
+                a.MouseEnter += TriggerEffect_Enter;
+                a.MouseLeave += TriggerEffect_Leave;
+            }
+        }
+
+        private void AddToListShadowEffect()
+        {
+            ListShadowEffect.Add(Button_close_grid);
+            ListShadowEffect.Add(Button_svernut_grid);
+           
+
+        }
+        private void AddEventsToListShadowEffect()
+        {
+            foreach (Grid a in ListShadowEffect)
+            {
+                a.MouseEnter += ShadowEffect_Enter;
+                a.MouseLeave += ShadowEffect_Leave;
+            }
+        }
+        private void SetShadow()
+        {
+            foreach (Grid a in ListShadowEffect)
+            {
+                a.Effect = Shadow_Leave;
+            }
+        }
+
+        private void AddToListVisibilityEffect()
+        {
+            ListVisibilityEffect.Add(SettingsMenu);
+        }
+        private void SetHiddenVisibility()
+        {
+            foreach (Grid a in ListVisibilityEffect)
+            {
+                a.Visibility = Visibility.Hidden;
+            }
+        }
+        private void SetLanguage(string lang)
+        {
+            if (lang == "RUS")
+            {
+                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_rus.xaml") };
+            }
             else
             {
                 this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_eng.xaml") };
             }
+        }
 
-                InitializeComponent();
-            
-            Grid_Menu_Button_1.MouseUp += Grid_Menu_Button_1_MouseUp;
-            Grid_Menu_Button_1.MouseUp += Jar1_switch;
-            Grid_Menu_Button_2.MouseUp += Grid_Menu_Button_1_MouseUp;
-            Grid_Menu_Button_2.MouseUp += Jar2_switch;
-            Grid_Menu_Button_3.MouseUp += Grid_Menu_Button_1_MouseUp;
-            Grid_Menu_Button_3.MouseUp += Jar3_switch;
-            Grid_Menu_Button_4.MouseUp += Grid_Menu_Button_1_MouseUp;
-            Grid_Menu_Button_4.MouseUp += Jar4_switch;
-            Grid_Menu_Button_5.MouseUp += Grid_Menu_Button_1_MouseUp;
-            Grid_Menu_Button_5.MouseUp += Jar5_switch;
-            Grid_Menu_Button_6.MouseUp += Grid_Menu_Button_1_MouseUp;
-            Grid_Menu_Button_6.MouseUp += Jar6_switch;
+        private void Close(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+        private void Svernut(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
 
-            DropShadowEffect Shadow_50_ = Shadow_50;
-            DropShadowEffect Shadow_none_ = Shadow_none;
-            grids.Add(Grid_Menu_Button_1);
-            grids.Add(Grid_Menu_Button_2);
-            grids.Add(Grid_Menu_Button_3);
-            grids.Add(Grid_Menu_Button_4);
-            grids.Add(Grid_Menu_Button_5);
-            grids.Add(Grid_Menu_Button_6);
+
+
+
+
+
+
+
+
+
+
+
+
+
+        List<Grid> grids_menu = new List<Grid>();
+        List<Grid> grids = new List<Grid>(); //массив гридов для эффектов
+        string bufer;
+        int jar;
+        object id;
+        List<Label> jar_lab = new List<Label>();
+        public FirstWindow(string lang, UserModel User, IncomeModel Income, ExpenseModel Expense, DebtModel Debt)
+        {
+            this.lang = lang;
+            SetLanguage(lang);
+            InitializeComponent();
+            AddToListTriggerEffect();
+            AddEventsToListShadowEffect();
+            AddToListVisibilityEffect();
+            SetHiddenVisibility();
+            AddToListShadowEffect();
+            AddEventsToListShadowEffect();
+            SetShadow();
+
+
+
+
+
             grids.Add(Grid_moneyIn_menu_button_1);
             grids.Add(Grid_moneyIn_menu_button_2);
             grids.Add(Grid_moneyIn_menu_button_3);
-            grids.Add(Grid_moneyIn_menu_button_4);
             grids.Add(Grid_text_box_1_Copy);
             grids.Add(Grid_text_box_2_Copy);
             grids.Add(Grid_text_box_3_Copy);
@@ -91,9 +230,9 @@ namespace SaveMyMoney
 
             foreach (Grid item in grids) //события изменения эффекта тени для всех гридов в массиве
             {
-                    item.MouseEnter += Grid_Menu_Button_1_MouseEnter;
-                    item.MouseLeave += Grid_Menu_Button_1_MouseLeave;
-                    item.Effect = Shadow_50;
+                item.MouseEnter += Grid_Menu_Button_1_MouseEnter;
+                item.MouseLeave += Grid_Menu_Button_1_MouseLeave;
+                //item.Effect = Shadow_50;
             }
 
             grids_menu.Add(Settings_grid);
@@ -116,7 +255,8 @@ namespace SaveMyMoney
                 item.MouseEnter += Settings_grid_MouseEnter;
                 item.MouseLeave += Settings_grid_MouseLeave;
             }
-            
+
+
         }
 
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
@@ -158,7 +298,25 @@ namespace SaveMyMoney
                 a.Visibility = Visibility.Hidden;
             }
             jar1_lab.Visibility = Visibility.Visible;
+            string sqlExpression = $"Select * from Jars where Id_user='{id}' and jar_num='1'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
 
+                if (reader.HasRows) // если есть данные
+                {
+                    while (reader.Read()) // построчно считываем данные
+                    {
+                        if (reader.GetValue(0) != null)
+                        {
+                            Lab_Amount.Content = reader.GetValue(2);
+                        }
+
+                    }
+                }
+            }
         }
 
         private void Jar2_switch(object sender, MouseButtonEventArgs e)
@@ -169,6 +327,25 @@ namespace SaveMyMoney
                 a.Visibility = Visibility.Hidden;
             }
             jar2_lab.Visibility = Visibility.Visible;
+            string sqlExpression = $"Select * from Jars where Id_user='{id}' and jar_num='2'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows) // если есть данные
+                {
+                    while (reader.Read()) // построчно считываем данные
+                    {
+                        if (reader.GetValue(0) != null)
+                        {
+                            Lab_Amount.Content = reader.GetValue(2);
+                        }
+
+                    }
+                }
+            }
         }
 
         private void Jar3_switch(object sender, MouseButtonEventArgs e)
@@ -179,6 +356,25 @@ namespace SaveMyMoney
                 a.Visibility = Visibility.Hidden;
             }
             jar3_lab.Visibility = Visibility.Visible;
+            string sqlExpression = $"Select * from Jars where Id_user='{id}' and jar_num='3'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows) // если есть данные
+                {
+                    while (reader.Read()) // построчно считываем данные
+                    {
+                        if (reader.GetValue(0) != null)
+                        {
+                            Lab_Amount.Content = reader.GetValue(2);
+                        }
+
+                    }
+                }
+            }
         }
 
         private void Jar4_switch(object sender, MouseButtonEventArgs e)
@@ -189,6 +385,25 @@ namespace SaveMyMoney
                 a.Visibility = Visibility.Hidden;
             }
             jar4_lab.Visibility = Visibility.Visible;
+            string sqlExpression = $"Select * from Jars where Id_user='{id}' and jar_num='4'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows) // если есть данные
+                {
+                    while (reader.Read()) // построчно считываем данные
+                    {
+                        if (reader.GetValue(0) != null)
+                        {
+                            Lab_Amount.Content = reader.GetValue(2);
+                        }
+
+                    }
+                }
+            }
         }
 
         private void Jar5_switch(object sender, MouseButtonEventArgs e)
@@ -199,6 +414,25 @@ namespace SaveMyMoney
                 a.Visibility = Visibility.Hidden;
             }
             jar5_lab.Visibility = Visibility.Visible;
+            string sqlExpression = $"Select * from Jars where Id_user='{id}' and jar_num='5'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows) // если есть данные
+                {
+                    while (reader.Read()) // построчно считываем данные
+                    {
+                        if (reader.GetValue(0) != null)
+                        {
+                            Lab_Amount.Content = reader.GetValue(2);
+                        }
+
+                    }
+                }
+            }
         }
 
         private void Jar6_switch(object sender, MouseButtonEventArgs e)
@@ -209,18 +443,37 @@ namespace SaveMyMoney
                 a.Visibility = Visibility.Hidden;
             }
             jar6_lab.Visibility = Visibility.Visible;
+            string sqlExpression = $"Select * from Jars where Id_user='{id}' and jar_num='6'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows) // если есть данные
+                {
+                    while (reader.Read()) // построчно считываем данные
+                    {
+                        if (reader.GetValue(0) != null)
+                        {
+                            Lab_Amount.Content = reader.GetValue(2);
+                        }
+
+                    }
+                }
+            }
         }
 
         private void Grid_Menu_Button_1_MouseEnter(object sender, MouseEventArgs e)
         {
             Grid grid = sender as Grid;
-            grid.Effect = Shadow_none;
+            //grid.Effect = Shadow_none;
         }
 
         private void Grid_Menu_Button_1_MouseLeave(object sender, MouseEventArgs e)
         {
             Grid grid = sender as Grid;
-            grid.Effect = Shadow_50;
+            //grid.Effect = Shadow_50;
         }
 
         private void Text_box_LostFocus(object sender, RoutedEventArgs e)
@@ -255,25 +508,7 @@ namespace SaveMyMoney
             grid.Background = default(Brush);
         }
         bool settings = false;
-        private void Settings_grid_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (settings)
-            {
-                settings = false;
-                Settings.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                settings = true;
-                Settings.Visibility = Visibility.Visible;
-            }
-     
-        }
 
-        private void Settings_LostFocus(object sender, RoutedEventArgs e)
-        {
-            Settings.Visibility = Visibility.Hidden;
-        }
 
         private void Language_grid_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -332,21 +567,94 @@ namespace SaveMyMoney
 
         private void Grid_moneyIn_menu_button_3_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            
-            string sqlExpression = $"INSERT INTO Income (Id_user,Name_income,Money_amount,Desc_income,Period_income,Date_income) values('{id}','{Income_nameT.Text}','{Income_amountT.Text}','{Income_DescT.Text}','{PeriodT.Content}',GETDATE());";
+
+            Income_amountT.Text = Income_amountT.Text.Replace('.', ',');
+
+            float[] mon = new float[7];
+            string s;
+            if (float.TryParse(Income_amountT.Text, out float parsed))
+            {
+                mon[1] = (parsed / 100) * 55;
+                mon[2] = (parsed / 100) * 10;
+                mon[3] = (parsed / 100) * 10;
+                mon[4] = (parsed / 100) * 10;
+                mon[5] = (parsed / 100) * 10;
+                mon[6] = (parsed / 100) * 5;
+                MessageBox.Show("good");
+            }
+            for (int i = 1; i < 7; i++)
+            {
+                s = $"{mon[i]}";
+                s = s.Replace(',', '.');
+                string sqlExpression = $"use Save_My_Money Update jars set Money_in_jar = Money_in_jar+{s} where Id_User = '{id}' and Jar_num = '{i}'";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    int a = command.ExecuteNonQuery();
+                }
+            }
+            string sqlExpression2 = $"INSERT INTO Income (Id_user,Name_income,Money_amount,Desc_income,Period_income,Date_income) values('{id}','{Income_nameT.Text}','{Income_amountT.Text}','{Income_DescT.Text}','{PeriodT.Content}',GETDATE());";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                int a = command.ExecuteNonQuery();   
+                SqlCommand command = new SqlCommand(sqlExpression2, connection);
+                int a = command.ExecuteNonQuery();
             }
-            MessageBox.Show("Good!!");
+            Income_amountT.Text = TryFindResource("Money_amount") as string;
+            Income_nameT.Text = TryFindResource("income_name") as string;
+            Income_DescT.Text = TryFindResource("Description") as string;
+            PeriodT.Content = TryFindResource("Period") as string;
         }
 
-            private void Grid_moneyIn_menu_button_1_MouseUp(object sender, MouseButtonEventArgs e)
+        private void Grid_moneyIn_menu_button_1_MouseUp(object sender, MouseButtonEventArgs e)
         {
             History history = new History(id);
             history.Show();
         }
+
+        private void Income_amountT_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Expense_Add_btn_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Expense_monT.Text = Expense_monT.Text.Replace(',', '.');
+            string sqlExpression = $"Update jars set Money_in_jar = Money_in_jar-{Expense_monT.Text} where Id_User = '{id}' and Jar_num = '{jar}'";
+            string sqlExpression2 = $"Select * from Jars where Id_user='{id}' and jar_num='{jar}'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.ExecuteNonQuery();
+                SqlCommand command2 = new SqlCommand(sqlExpression2, connection);
+                SqlDataReader reader = command2.ExecuteReader();
+
+                if (reader.HasRows) // если есть данные
+                {
+                    while (reader.Read()) // построчно считываем данные
+                    {
+                        if (reader.GetValue(0) != null)
+                        {
+                            Lab_Amount.Content = reader.GetValue(2);
+                        }
+
+                    }
+                }
+            }
+            Expense_monT.Text = TryFindResource("Money_amount") as string;
+            Expense_nameT.Text = TryFindResource("ExpenceName") as string;
+            Expense_DescT.Text = TryFindResource("Description") as string;
+            PeriodT1.Content = TryFindResource("Period") as string;
+
+
+        }
+
+        private void Expense_monT_TextChanged(object sender, TextChangedEventArgs e)
+        {
+        }
+
+  
     }
 }

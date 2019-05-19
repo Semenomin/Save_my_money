@@ -9,9 +9,9 @@
         <DropShadowEffect x:Name="Language_button_shadow" Opacity="0.5" BlurRadius="10"/>
     </UserControl.Effect>
     <Grid Margin="0">
-        <Rectangle x:Name="Ret_1" Fill="{DynamicResource SecondGreen}" Margin="0,0,0,52"/>
-        <Rectangle x:Name="Ret_2" Fill="{DynamicResource SecondGreen}" Height="23" VerticalAlignment="Top" Margin="0,23,0,0"/>
-        <Rectangle x:Name="Ret_3" Fill="{DynamicResource SecondGreen}" Height="19" Margin="0,51,0,0"/>
-        <Label x:Name="Label1" Content="{DynamicResource Language}" Margin="0,18,0,19" Height="33" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}"/>
+        <Rectangle x:Name="Ret_1" Fill="{DynamicResource SecondBlue}" Margin="0,0,0,52"/>
+        <Rectangle x:Name="Ret_2" Fill="{DynamicResource SecondBlue}" Height="23" VerticalAlignment="Top" Margin="0,23,0,0"/>
+        <Rectangle x:Name="Ret_3" Fill="{DynamicResource SecondBlue}" Height="19" Margin="0,51,0,0"/>
+        <Label x:Name="Label1" Content="{DynamicResource Language}" Margin="0,18,0,19" Height="33" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{DynamicResource MainBlue}"/>
     </Grid>
 </UserControl>

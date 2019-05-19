@@ -63,4 +63,5 @@
     <system:String x:Key="ExpenceName">Expense Name</system:String>
     <system:String x:Key="Onceamonth">Once a month</system:String>
     <system:String x:Key="none">None</system:String>
+    <system:String x:Key="Creator">Creator</system:String>
 </ResourceDictionary>

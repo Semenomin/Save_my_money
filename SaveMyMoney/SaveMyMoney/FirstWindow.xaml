@@ -6,103 +6,22 @@
         xmlns:local="clr-namespace:SaveMyMoney"
         xmlns:User_Controls="clr-namespace:SaveMyMoney.User_Controls" x:Name="wwwindow" x:Class="SaveMyMoney.FirstWindow"
         mc:Ignorable="d"
-        Title="FirstWindow" Height="543.5" MinWidth="750" MinHeight="500" Width="890.734">
+        Title="FirstWindow" Height="553" MinWidth="750" MinHeight="553" Width="890.734">
     <Grid x:Name="Main_grid" Background="{DynamicResource MainGreen}" Margin="0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="126*"/>
-            <ColumnDefinition Width="126*"/>
-            <ColumnDefinition Width="104*"/>
-            <ColumnDefinition Width="22*"/>
-            <ColumnDefinition Width="126*"/>
-            <ColumnDefinition Width="22*"/>
-            <ColumnDefinition Width="104*"/>
-            <ColumnDefinition Width="126*"/>
-            <ColumnDefinition Width="126*"/>
+            <ColumnDefinition Width="206"/>
+            <ColumnDefinition/>
 
 
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="90*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="361*"/>
+            <RowDefinition Height="68"/>
+            <RowDefinition/>
             <RowDefinition Height="46"/>
         </Grid.RowDefinitions>
-        <User_Controls:Main_center_button Grid.ColumnSpan="3" Grid.Column="3" Grid.RowSpan="2" Width="Auto" Height="Auto" Panel.ZIndex="1" BorderThickness="0" Cursor="Hand" MouseUp="Main_center_button_MouseUp"/>
-        <Grid x:Name="Grid_Menu_Button_1" MouseUp="Grid_Menu_Button_1_MouseUp" MouseEnter="Grid_Menu_Button_1_MouseEnter" MouseLeave="Grid_Menu_Button_1_MouseLeave" Cursor="Hand">
-            <Grid.Effect>
-                <DropShadowEffect x:Name="Shadow_50" Opacity="0.5"/>
-            </Grid.Effect>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="7*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="37*"/>
-            </Grid.RowDefinitions>
-            <Rectangle x:Name="Rec11" Fill="{DynamicResource SecondGreen}" RadiusY="30" RadiusX="30" Grid.RowSpan="2" Stroke="{DynamicResource SecondGreen}" Grid.ColumnSpan="2"/>
-            <Rectangle x:Name="Rec12" Fill="{DynamicResource SecondGreen}" Stroke="{DynamicResource SecondGreen}" Grid.ColumnSpan="2"/>
-            <Label x:Name="Rec1_text" Content="{DynamicResource 1_bottle}" Grid.RowSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Foreground="{DynamicResource MainGreen}" Grid.ColumnSpan="2">
-                <Label.Effect>
-                    <DropShadowEffect x:Name="Shadow_none" Opacity="0"/>
-                </Label.Effect>
-            </Label>
-
-        </Grid>
-        <Grid x:Name="Grid_Menu_Button_2" Grid.Column="1" Cursor="Hand">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Rectangle x:Name="Rec9" Fill="{DynamicResource SecondGreen}" RadiusY="26" RadiusX="26" Stroke="{DynamicResource SecondGreen}"/>
-            <Rectangle x:Name="Rec10" Fill="{DynamicResource SecondGreen}" Stroke="{DynamicResource SecondGreen}" Margin="0,0,0,37"/>
-            <Label x:Name="Rec2_text" Content="{DynamicResource 2_bottle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Foreground="{DynamicResource MainGreen}"/>
-
-        </Grid>
-        <Grid x:Name="Grid_Menu_Button_3" Grid.Column="2" Grid.ColumnSpan="2" Cursor="Hand">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="37*"/>
-            </Grid.RowDefinitions>
-            <Rectangle x:Name="Rec1" Fill="{DynamicResource SecondGreen}" RadiusY="26" RadiusX="26" Grid.RowSpan="2" Stroke="{DynamicResource SecondGreen}"/>
-            <Rectangle x:Name="Rec2" Fill="{DynamicResource SecondGreen}" Stroke="{DynamicResource SecondGreen}"/>
-            <Label x:Name="Rec3_text" Content="{DynamicResource 3_bottle}" Grid.RowSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Foreground="{DynamicResource MainGreen}" Margin="0,0,23,0"/>
-
-        </Grid>
-        <Grid x:Name="Grid_Menu_Button_4" Grid.Column="5" Grid.ColumnSpan="2" Margin="1,0,0,0" Cursor="Hand">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="37*"/>
-            </Grid.RowDefinitions>
-            <Rectangle x:Name="Rec3" Fill="{DynamicResource SecondGreen}" RadiusY="30" RadiusX="30" Grid.RowSpan="2" Stroke="{DynamicResource SecondGreen}"/>
-            <Rectangle x:Name="Rec4" Fill="{DynamicResource SecondGreen}" Stroke="{DynamicResource SecondGreen}"/>
-            <Label x:Name="Rec4_text" Content="{DynamicResource 4_bottle}" Grid.RowSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Foreground="{DynamicResource MainGreen}" Margin="22,0,0,0"/>
-
-        </Grid>
-        <Grid x:Name="Grid_Menu_Button_5" Grid.Column="7" Cursor="Hand">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="37*"/>
-            </Grid.RowDefinitions>
-            <Rectangle x:Name="Rec5" Fill="{DynamicResource SecondGreen}" RadiusY="26" RadiusX="26" Grid.RowSpan="2" Stroke="{DynamicResource SecondGreen}"/>
-            <Rectangle x:Name="Rec6" Fill="{DynamicResource SecondGreen}" Stroke="{DynamicResource SecondGreen}"/>
-            <Label x:Name="Rec5_text" Content="{DynamicResource 5_bottle}" Grid.RowSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Foreground="{DynamicResource MainGreen}"/>
-
-        </Grid>
-        <Grid x:Name="Grid_Menu_Button_6" Grid.Column="8" Cursor="Hand">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="37*"/>
-            </Grid.RowDefinitions>
-            <Rectangle x:Name="Rec7" Fill="{DynamicResource SecondGreen}" RadiusY="26" RadiusX="26" Grid.RowSpan="2" Stroke="{DynamicResource SecondGreen}"/>
-            <Rectangle x:Name="Rec8" Fill="{DynamicResource SecondGreen}" Stroke="{DynamicResource SecondGreen}"/>
-            <Label x:Name="Rec6_text" Content="{DynamicResource 6_bottle}" Grid.RowSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Foreground="{DynamicResource MainGreen}"/>
-
-        </Grid>
-        <Grid x:Name="MoneyIn" Grid.ColumnSpan="9" Grid.RowSpan="3" Panel.ZIndex="-1" Margin="0,49,2,0">
+        <User_Controls:Main_center_button Width="Auto" Height="Auto" Panel.ZIndex="1" BorderThickness="0" Cursor="Hand" MouseUp="Main_center_button_MouseUp" d:IsHidden="True" Margin="150,0,357,361" Grid.Column="1" Grid.RowSpan="2"/>
+        <Grid x:Name="MoneyIn" Panel.ZIndex="-1" Margin="0,0,2,0" Grid.Column="1" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="357*"/>
                 <ColumnDefinition Width="170*"/>
@@ -133,7 +52,7 @@
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name5" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
                 <Rectangle x:Name="Little_6" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox x:Name="Income_DescT" TextWrapping="Wrap" Text="{DynamicResource Description}" FontSize="20" Background="{x:Null}" Padding="20,10,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0" Loaded="TextBox_Loaded"/>
+                <TextBox x:Name="Income_DescT" TextWrapping="Wrap" Text="{DynamicResource Description}" FontSize="20" Background="{x:Null}" Padding="20,5,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0" Loaded="TextBox_Loaded" VerticalContentAlignment="Top"/>
             </Grid>
             <Grid x:Name="Grid_moneyIn_menu_button_1" Grid.Row="2" Grid.Column="1" MouseUp="Grid_moneyIn_menu_button_1_MouseUp">
                 <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="0,5"/>
@@ -146,10 +65,6 @@
             <Grid x:Name="Grid_moneyIn_menu_button_3" Grid.Row="4" Grid.Column="1" MouseUp="Grid_moneyIn_menu_button_3_MouseUp">
                 <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="0,5"/>
                 <Label Content="{DynamicResource Add}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainGreen}" Cursor="Hand"/>
-            </Grid>
-            <Grid x:Name="Grid_moneyIn_menu_button_4" Grid.Row="5" Grid.Column="1">
-                <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="0,5"/>
-                <Label Content="{DynamicResource Charts}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainGreen}" Cursor="Hand"/>
             </Grid>
             <Grid x:Name="Grid_text_box_1_Copy" Margin="0,10" Grid.Row="2" Grid.Column="2">
                 <Grid.RowDefinitions>
@@ -165,7 +80,7 @@
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name4" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
                 <Rectangle x:Name="Little_5" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox x:Name="Income_amountT" TextWrapping="Wrap" Text="{DynamicResource Money_amount}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
+                <TextBox x:Name="Income_amountT" TextWrapping="Wrap" Text="{DynamicResource Money_amount}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0" TextChanged="Income_amountT_TextChanged"/>
             </Grid>
             <Grid x:Name="Grid_text_box_3_Copy1" Margin="0,10" Grid.Row="4" Grid.Column="2" MouseUp="Grid_text_box_3_Copy1_MouseUp">
                 <Grid.RowDefinitions>
@@ -195,7 +110,7 @@
                 </Grid>
             </StackPanel>
         </Grid>
-        <Grid x:Name="Bottle" Grid.RowSpan="3" Grid.ColumnSpan="9" Margin="0,49,0,0" d:IsHidden="True">
+        <Grid x:Name="Bottle" Margin="0,1,0,0" Grid.ColumnSpan="2" d:IsHidden="True" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="338*"/>
                 <ColumnDefinition Width="206*"/>
@@ -220,6 +135,8 @@
             <Label x:Name="jar6_lab" Content="{DynamicResource Jar6_lab}" Grid.Row="1" VerticalContentAlignment="Bottom" Foreground="{DynamicResource SecondGreen}" FontSize="36" HorizontalContentAlignment="Center" Visibility="Hidden" Grid.ColumnSpan="3"/>
             <Grid x:Name="grafic_grid" Grid.Column="2" Grid.Row="3" Margin="70,0,71,45" Grid.RowSpan="6">
                 <Rectangle x:Name="Grafic" Fill="{DynamicResource SecondGreen}"/>
+                <Label x:Name="Lab_Amount" Content="" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Foreground="{DynamicResource MainGreen}" Background="{x:Null}"/>
+                <Rectangle x:Name="Grafic_2" Fill="{DynamicResource Trigger}" HorizontalAlignment="Left" Height="1" VerticalAlignment="Top" Width="198"/>
             </Grid>
             <Grid x:Name="Expense_Name_t" Grid.Row="2">
                 <Grid.RowDefinitions>
@@ -227,7 +144,7 @@
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name7" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
                 <Rectangle x:Name="Little_7" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox TextWrapping="Wrap" Text="{DynamicResource ExpenceName}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0" SpellCheck.IsEnabled="True"/>
+                <TextBox x:Name="Expense_nameT" TextWrapping="Wrap" Text="{DynamicResource ExpenceName}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0" SpellCheck.IsEnabled="True"/>
             </Grid>
             <Grid x:Name="Expense_Money_t" Grid.Row="4">
                 <Grid.RowDefinitions>
@@ -235,7 +152,7 @@
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name8" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
                 <Rectangle x:Name="Little_8" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox TextWrapping="Wrap" Text="{DynamicResource Money_amount}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
+                <TextBox x:Name="Expense_monT" TextWrapping="Wrap" Text="{DynamicResource Money_amount}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0" TextChanged="Expense_monT_TextChanged"/>
             </Grid>
             <Grid x:Name="Expense_Desc_t" Grid.Row="8" Margin="0,0,0,10">
                 <Grid.RowDefinitions>
@@ -243,7 +160,7 @@
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="Text_box_name9" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="40,0"/>
                 <Rectangle x:Name="Little_9" Fill="{DynamicResource SecondGreen}" Margin="40,0,0,23" HorizontalAlignment="Left" Width="36"/>
-                <TextBox TextWrapping="Wrap" Text="{DynamicResource Description}" FontSize="20" Background="{x:Null}" Padding="20,10,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0"/>
+                <TextBox x:Name="Expense_DescT" TextWrapping="Wrap" Text="{DynamicResource Description}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource MainGreen}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="40,0" VerticalContentAlignment="Top"/>
             </Grid>
             <Grid x:Name="Expense_Hist_btn" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1">
                 <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="0,5"/>
@@ -253,7 +170,7 @@
                 <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="0,5"/>
                 <Label Content="{DynamicResource Planner}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainGreen}" Cursor="Hand"/>
             </Grid>
-            <Grid x:Name="Expense_Add_btn" Grid.Row="6" Margin="0,0,0,1" Grid.Column="1" Grid.RowSpan="2">
+            <Grid x:Name="Expense_Add_btn" Grid.Row="6" Margin="0,0,0,1" Grid.Column="1" Grid.RowSpan="2" MouseUp="Expense_Add_btn_MouseUp">
                 <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}" Margin="0,5"/>
                 <Label Content="{DynamicResource Add}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainGreen}" Cursor="Hand"/>
             </Grid>
@@ -282,21 +199,104 @@
                 </Grid>
             </StackPanel>
         </Grid>
-        <Grid x:Name="Tool_grid" Grid.Row="3" Grid.ColumnSpan="9" Background="{DynamicResource SecondGreen}" Panel.ZIndex="-2">
+        <Grid x:Name="Tool_grid" Grid.Row="2" Background="{DynamicResource MainBlue}" Panel.ZIndex="-2" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal">
-                <Grid x:Name="Settings_grid" HorizontalAlignment="Left" Margin="0" MouseEnter="Settings_grid_MouseEnter" MouseLeave="Settings_grid_MouseLeave" MouseUp="Settings_grid_MouseUp" Cursor="Hand">
-                    <Label Content="{DynamicResource Settings}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Foreground="{DynamicResource MainGreen}" BorderBrush="{DynamicResource MainGreen}" BorderThickness="0" Margin="10,0"/>
+                <Grid x:Name="Settings_grid" HorizontalAlignment="Left" Margin="0" MouseUp="SettingsMenuAppear" Cursor="Hand">
+                    <Label Content="{DynamicResource Settings}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" Foreground="{DynamicResource SecondBlue}" BorderThickness="0" Margin="10,0" Background="{x:Null}" FontFamily="Segoe UI Light"/>
                 </Grid>
                 <Grid x:Name="LogOut_grid" Margin="0,0,129,1" Cursor="Hand">
-                    <Label Content="{DynamicResource Log_out}" Foreground="{DynamicResource MainGreen}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Margin="10,0" MouseUp="Label_MouseUp_1"/>
+                    <Label Content="{DynamicResource Log_out}" Foreground="{DynamicResource SecondBlue}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" Margin="10,0" MouseUp="Label_MouseUp_1" Background="{x:Null}" FontFamily="Segoe UI Light"/>
                 </Grid>
             </StackPanel>
         </Grid>
-        <StackPanel x:Name="Settings" Background="{DynamicResource SecondGreen}" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Left" Width="252" Height="174" VerticalAlignment="Bottom" Visibility="Hidden">
-            <Grid x:Name="Language_grid" Cursor="Hand" Height="48" MouseUp="Language_grid_MouseUp">
-                <Label x:Name="Language" Content="{DynamicResource Language}" VerticalContentAlignment="Center" FontSize="18" Padding="20,5,5,5" Foreground="{DynamicResource MainGreen}" Background="{x:Null}"/>
+        <Grid x:Name="MenuGrid" Background="{DynamicResource MainBlue}" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="67"/>
+                <RowDefinition Height="67"/>
+                <RowDefinition Height="67"/>
+                <RowDefinition Height="68"/>
+                <RowDefinition Height="67"/>
+                <RowDefinition Height="68"/>
+                <RowDefinition Height="67"/>
+
+            </Grid.RowDefinitions>
+            <Grid x:Name="Menu1" Cursor="Hand" Background="{DynamicResource SecondBlue}" Margin="5,5,6.3,5">
+                <Label Content="{DynamicResource Income}" Background="{x:Null}" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" Padding="5" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold" Margin="0,0,-0.3,0"/>
             </Grid>
-        </StackPanel>
+            <Grid x:Name="Menu2" Grid.Row="1" Cursor="Hand" Background="{DynamicResource SecondBlue}" Margin="5,0,5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="73*"/>
+                    <ColumnDefinition Width="30*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="{DynamicResource 1_bottle}" Background="{x:Null}" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" Padding="5" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+                <Label Content="55%" Grid.Column="1" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+            </Grid>
+            <Grid x:Name="Menu3" Grid.Row="2" Cursor="Hand" Background="{DynamicResource SecondBlue}" Margin="5,0,5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="73*"/>
+                    <ColumnDefinition Width="30*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="{DynamicResource 2_bottle}" Background="{x:Null}" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" Padding="5" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+                <Label Content="10%" Grid.Column="1" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+            </Grid>
+            <Grid x:Name="Menu4" Grid.Row="3" Cursor="Hand" Background="{DynamicResource SecondBlue}" Margin="5,0,5,6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="73*"/>
+                    <ColumnDefinition Width="30*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="{DynamicResource 3_bottle}" Background="{x:Null}" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" Padding="5" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+                <Label Content="10%" Grid.Column="1" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+            </Grid>
+            <Grid x:Name="Menu5" Grid.Row="4" Cursor="Hand" Background="{DynamicResource SecondBlue}" Margin="5,0,5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="73*"/>
+                    <ColumnDefinition Width="30*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="{DynamicResource 4_bottle}" Background="{x:Null}" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" Padding="5" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+                <Label Content="10%" Grid.Column="1" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+            </Grid>
+            <Grid x:Name="Menu6" Grid.Row="5" Cursor="Hand" Background="{DynamicResource SecondBlue}" Margin="5,0,5,6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="73*"/>
+                    <ColumnDefinition Width="30*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="{DynamicResource 5_bottle}" Background="{x:Null}" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" Padding="5" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+                <Label Content="10%" Grid.Column="1" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+            </Grid>
+            <Grid x:Name="Menu7" Grid.Row="6" Cursor="Hand" Background="{DynamicResource SecondBlue}" Margin="5,0,5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="73*"/>
+                    <ColumnDefinition Width="30*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="{DynamicResource 6_bottle}" Background="{x:Null}" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" Padding="5" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+                <Label Content="5%" Grid.Column="1" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="SettingsMenu" HorizontalAlignment="Left" Width="252" Grid.Column="1" Height="174" VerticalAlignment="Bottom" d:IsHidden="True" Grid.Row="1">
+            <StackPanel x:Name="Settings_menu" Background="{DynamicResource MainBlue}" HorizontalAlignment="Left" Width="252" Height="174" VerticalAlignment="Bottom">
+                <Rectangle Fill="{DynamicResource MainBlue}" Height="10"/>
+                <Grid x:Name="Language_grid" Cursor="Hand" Height="48" MouseUp="ChangeLang" Margin="10,0,5,0">
+                    <Label x:Name="Language" Content="{DynamicResource Language}" VerticalContentAlignment="Center" FontSize="22" Padding="20,5,5,5" Foreground="{DynamicResource MainBlue}" Background="{DynamicResource SecondBlue}" FontFamily="Segoe UI Light"/>
+                </Grid>
+                <Rectangle Fill="{DynamicResource MainBlue}" Height="10"/>
+                <Grid x:Name="Creator" Height="52" MouseUp="OpenCreatorWindow" Margin="10,0,5,0" Cursor="Hand">
+                    <Label Content="{DynamicResource Creator}" VerticalContentAlignment="Center" Padding="20,5,5,5" Background="{DynamicResource SecondBlue}" Foreground="{DynamicResource MainBlue}" FontSize="22" FontFamily="Segoe UI Light"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="Top_tool_grid" Grid.Column="1" Background="{DynamicResource MainBlue}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="Button_close_grid" Grid.Column="2">
+                <Ellipse x:Name="Button_close" Fill="{DynamicResource SecondBlue}" Cursor="Hand" Margin="10" />
+            </Grid>
+            <Grid x:Name="Button_svernut_grid" Grid.Column="1">
+                <Ellipse x:Name="Button_svernut" Fill="{DynamicResource SecondBlue}" Cursor="Hand" Margin="10" HorizontalAlignment="Center" Width="50" Height="48" VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
 
     </Grid>
 </Window>

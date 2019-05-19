@@ -62,4 +62,6 @@
     <system:String x:Key="ExpenceName">Имя расхода</system:String>
     <system:String x:Key="Onceamonth">Раз в месяц</system:String>
     <system:String x:Key="none">Пусто</system:String>
+    <system:String x:Key="Creator">О создателе</system:String>
+
 </ResourceDictionary>

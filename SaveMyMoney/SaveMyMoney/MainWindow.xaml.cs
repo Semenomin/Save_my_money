@@ -13,108 +13,198 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.Windows.Media.Effects;
 
 namespace SaveMyMoney
 {
-
-   
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
-  
         string lang = "ENG";
-        object id;
+
+        List<Grid> ListShadowEffect = new List<Grid>();
+
+        string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
+
+        DropShadowEffect Shadow_Enter = new DropShadowEffect()
+        {
+            BlurRadius = 6,
+            Direction = 315,
+            Opacity = 0,
+            ShadowDepth = 5
+        };
+        DropShadowEffect Shadow_Leave = new DropShadowEffect()
+        {
+            BlurRadius = 6,
+            Direction = 315,
+            Opacity = 0.5,
+            ShadowDepth = 5
+        };
+
         public MainWindow()
         {
             InitializeComponent();
-        }
-        #region Изменение тени при наводе мыши на ЭУ
-
-        private void Log_In_Button_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Drop_shadow_button.Opacity = 0;
+            AddToListShadowEffect();
+            AddEventsToListShadowEffect();
+            SetShadow();
         }
 
-        private void Log_In_Button_MouseLeave(object sender, MouseEventArgs e)
+        private void AddToListShadowEffect()
         {
-            Drop_shadow_button.Opacity = 0.5;
+            ListShadowEffect.Add(Login_Button_Grid);
+            ListShadowEffect.Add(Login_grid);
+            ListShadowEffect.Add(Password_Grid);
+            ListShadowEffect.Add(Button_close_grid);
+            ListShadowEffect.Add(Button_svernut_grid);
+        }
+        private void AddEventsToListShadowEffect()
+        {
+            foreach (Grid a in ListShadowEffect)
+            {
+                a.MouseEnter += ShadowEffect_Enter;
+                a.MouseLeave += ShadowEffect_Leave;
+            }
+        }
+        private void SetShadow()
+        {
+            foreach (Grid a in ListShadowEffect)
+            {
+                a.Effect = Shadow_Leave;
+            }
         }
 
-
-        private void LogIn_button_text_MouseEnter(object sender, MouseEventArgs e)
+        private void ShadowEffect_Enter(object sender, MouseEventArgs e)
         {
-            Drop_shadow_button.Opacity = 0;
+            Grid a = sender as Grid;
+            a.Effect = Shadow_Enter;
+        }
+        private void ShadowEffect_Leave(object sender, MouseEventArgs e)
+        {
+            Grid a = sender as Grid;
+            a.Effect = Shadow_Leave;
         }
 
-        private void LogIn_button_text_MouseLeave(object sender, MouseEventArgs e)
+        private UserModel    GetUserModel()
         {
-            Drop_shadow_button.Opacity = 0.50;
+            string sqlExpression = $"Select id,name from Users where Login = '{Text_box_Login_text.Text}' and Password = '{Text_box_password_text.Text}'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        return new UserModel()
+                        {
+                            Id = int.Parse(reader.GetValue(0).ToString()),
+                            Name = reader.GetValue(1).ToString()
+                        };
+                    }
+                }
+                else throw new Exception("Invalid Login or Password");
+                return null;
+            }
+        }
+        private IncomeModel  GetIncomeMOdel (UserModel model)
+        {
+            string sqlExpression = $"Select * from Income where Id_user = '{model.Id}'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        return new IncomeModel()
+                        {
+                            Id = int.Parse(reader.GetValue(0).ToString()),
+                            Date = reader.GetValue(6).ToString(),
+                            Money = float.Parse(reader.GetValue(3).ToString()),
+                            Name = reader.GetValue(2).ToString(),
+                            Description = reader.GetValue(4).ToString(),
+                            Period = int.Parse(reader.GetValue(5).ToString())
+                        };
+                    }
+                }
+                return null;
+            }
+        }
+        private ExpenseModel GetExpenseModel(UserModel model)
+        {
+            string sqlExpression = $"Select * from Expense where Id_user = '{model.Id}'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        return new ExpenseModel()
+                        {
+                            Id = int.Parse(reader.GetValue(0).ToString()),
+                            Date = reader.GetValue(6).ToString(),
+                            Money = float.Parse(reader.GetValue(3).ToString()),
+                            Name = reader.GetValue(2).ToString(),
+                            Description = reader.GetValue(4).ToString(),
+                            Period = int.Parse(reader.GetValue(5).ToString())
+                        };
+                    }
+                }
+                return null;
+            }
+        }
+        private DebtModel    GetDebtModel   (UserModel model)
+        {
+            string sqlExpression = $"Select * from Debts where Id_user = '{model.Id}'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        return new DebtModel()
+                        {
+                            Id = int.Parse(reader.GetValue(0).ToString()),
+                            From_who = reader.GetValue(2).ToString(),
+                            Date = reader.GetValue(3).ToString(),
+                            Expence = int.Parse(reader.GetValue(4).ToString()),
+                            Income = int.Parse(reader.GetValue(5).ToString()),
+                            Return_Date = reader.GetValue(6).ToString(),
+                            Jar = int.Parse(reader.GetValue(7).ToString()),
+                            Description = reader.GetValue(8).ToString(),
+                        };
+                    }
+                }
+                return null;
+            }
         }
 
-        private void Text_box_password_MouseEnter(object sender, MouseEventArgs e)
+        private void Login               (object sender, MouseButtonEventArgs e)
         {
-            Drop_shadow_Text_box_password.Opacity = 0;
+            try
+            {
+                UserModel User = GetUserModel();
+                IncomeModel Income = GetIncomeMOdel(User);
+                ExpenseModel Expense = GetExpenseModel(User);
+                DebtModel Debt = GetDebtModel(User);
+                FirstWindow firstWindow = new FirstWindow(lang, User, Income, Expense, Debt);
+                firstWindow.Show();
+                this.Close();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
-
-        private void Text_box_password_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Drop_shadow_Text_box_password.Opacity = 0.50;
-        }
-
-        private void Text_box_password_text_MouseEnter(object sender, MouseEventArgs e)
-        {
-            
-            Drop_shadow_Text_box_password.Opacity = 0;
-        }
-
-        private void Text_box_password_text_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Drop_shadow_Text_box_password.Opacity = 0.50;
-        }
-
-        private void Text_box_Login_text_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Drop_shadow_Text_box_login.Opacity = 0;
-        }
-
-        private void Text_box_Login_text_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Drop_shadow_Text_box_login.Opacity = 0.50;
-        }
-        
-        private void Button_close_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Close_Button_Shadow.Opacity = 0;
-        }
-
-        private void Button_close_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Close_Button_Shadow.Opacity = 0.50;
-        }
-        private void Button_svernut_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Svernut_shadow.Opacity = 0;
-        }
-
-        private void Button_svernut_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Svernut_shadow.Opacity = 0.50;
-        }
-        #endregion
-        #region Обработка нажатий на кнопки
-        private void Button_close_MouseUp(object sender, MouseButtonEventArgs e) //закрытие формы
-        {
-            this.Close();
-        }
-        private void Лампочка_green_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e) //изменение стилей
-        {
-           
-            
-        }
-        private void Language_MouseRightButtonUp(object sender, MouseButtonEventArgs e) //изменение языка
+        private void ChangeLang          (object sender, MouseButtonEventArgs e)
         {
             if (lang == "ENG")
             {
@@ -127,99 +217,35 @@ namespace SaveMyMoney
                 this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_eng.xaml") };
             }
         }
-        private void Button_svernut_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void Close               (object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+        private void Svernut             (object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
-        private void Language_button_Loaded(object sender, RoutedEventArgs e) //загрузка пользовательского ЭУ
-        {
-
-        }
-        private void LogIn_button_text_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            string sqlExpression = $"Select Id from Users where Login_text like '{Text_box_Login_text.Text}' and Password_text like '{Text_box_password_text.Text}'";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows) // если есть данные
-                {
-                    while (reader.Read()) // построчно считываем данные
-                    {
-                        if (reader.GetValue(0) != null)
-                        {
-                            id = reader.GetValue(0);
-                        }
-                       
-                    }
-                    FirstWindow firstWindow = new FirstWindow(lang,id);
-                    firstWindow.Show();
-                    //this.Close();
-                }
-                else
-                {
-                    //Alarm.Visibility = Visibility.Visible;
-                }
-                reader.Close();
-            }
-
-
-
-          
-        }
-        #endregion
-        #region Изменение работа с текстом внутри TextBox
-        private void Text_box_Login_text_GotFocus(object sender, RoutedEventArgs e) //очистка поля
-        {
-            if (Text_box_Login_text.Text == "Login" || Text_box_Login_text.Text == "Логин")
-                Text_box_Login_text.Text = "";
-        }
-
-        private void Text_box_Login_text_LostFocus(object sender, RoutedEventArgs e) //возврат если поле пустое
-        {
-            if (Text_box_Login_text.Text == "")
-                Text_box_Login_text.Text = this.TryFindResource("Login").ToString();
-        }
-
-        private void Text_box_password_text_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (Text_box_password_text.Text == "")
-                Text_box_password_text.Text = this.TryFindResource("Password").ToString();
-        }
-
-        private void Text_box_password_text_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (Text_box_password_text.Text == "Password" || Text_box_password_text.Text == "Пороль")
-                Text_box_password_text.Text = "";
-        }
-
-
-
-        #endregion
-        private void Text_box_password_text_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Label_MouseEnter(object sender, MouseEventArgs e)
-        {
-            
-            
-        }
-
-        private void Label_MouseLeave(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void Label_MouseUp(object sender, MouseButtonEventArgs e)
+        private void OpenRegistrationForm(object sender, MouseButtonEventArgs e)
         {
             Registration reg = new Registration(lang);
             reg.ShowDialog();
         }
+        
+        private void TextEffectGotFocus (object sender, RoutedEventArgs e)
+        {
+            if (Text_box_Login_text.Text == "Login" || Text_box_Login_text.Text == "Логин")
+                Text_box_Login_text.Text = "";
+            if (Text_box_password_text.Text == "Password" || Text_box_password_text.Text == "Пороль")
+                Text_box_password_text.Text = "";
+        }
+        private void TextEffectLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (Text_box_Login_text.Text == "")
+                Text_box_Login_text.Text = this.TryFindResource("Login").ToString();
+            if (Text_box_password_text.Text == "")
+                Text_box_password_text.Text = this.TryFindResource("Password").ToString();
+        }
+       
     }
-
-    
 }
+

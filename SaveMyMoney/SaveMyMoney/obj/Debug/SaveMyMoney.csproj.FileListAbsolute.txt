@@ -58,3 +58,5 @@ D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\MaterialDesi
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.csproj.CopyComplete
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Creator.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Creator.baml

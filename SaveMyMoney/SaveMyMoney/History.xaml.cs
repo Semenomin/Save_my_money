@@ -31,10 +31,6 @@ namespace SaveMyMoney
         {
             InitializeComponent();
             this.id = id;
-        }
-
-        private void Show_Click(object sender, RoutedEventArgs e)
-        {
             string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -67,6 +63,11 @@ namespace SaveMyMoney
                     MessageBox.Show("No strings!");
                 }
             }
+        }
+
+        private void Show_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

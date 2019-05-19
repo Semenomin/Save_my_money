@@ -1,0 +1,14 @@
+﻿<Window x:Class="SaveMyMoney.Creator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaveMyMoney"
+        mc:Ignorable="d"
+        Title="Creator" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" WindowStyle="None">
+    <Grid Background="{DynamicResource MainBlue}" MouseUp="Grid_MouseUp">
+        <Label Content="Created By" Margin="0,0,0,347" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="72" FontWeight="Bold" Height="109" Foreground="{DynamicResource SecondBlue}" FontFamily="Segoe UI Semibold"/>
+        <TextBlock Margin="0,109,0,0" TextWrapping="Wrap" TextAlignment="Center" Foreground="{DynamicResource SecondBlue}" FontWeight="Bold" FontStyle="Italic" FontSize="80" FontFamily="Segoe UI Light"><Run Text="Semen Pilik"/><LineBreak/><Run Text="2 kurs 8 group"/><LineBreak/><Run Text="@2019"/></TextBlock>
+
+    </Grid>
+</Window>

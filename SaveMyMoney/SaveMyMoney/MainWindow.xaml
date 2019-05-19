@@ -1,5 +1,4 @@
 ﻿<Window x:Name="LogIn_form" x:Class="SaveMyMoney.MainWindow"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,60 +6,37 @@
         xmlns:local="clr-namespace:SaveMyMoney"
         mc:Ignorable="d" Height="500" Width="750" MaxWidth="750" MaxHeight="500" Padding="20" MinWidth="750" MinHeight="500" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
-    <Grid x:Name="Main_grid" Background="{DynamicResource MainGreen}">
+    <Grid x:Name="Main_grid" Background="{DynamicResource MainBlue}">
         <Grid.RowDefinitions>
             <RowDefinition Height="498"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="742"/>
         </Grid.ColumnDefinitions>
-        <Grid Margin="237,377,237,65" MouseDown="LogIn_button_text_MouseDown">
-            <Rectangle x:Name="Log_In_Button" RadiusY="28" RadiusX="28" Cursor="Hand" MouseEnter="Log_In_Button_MouseEnter" MouseLeave="Log_In_Button_MouseLeave" Fill="{DynamicResource SecondGreen}">
-                <Rectangle.Effect>
-                    <DropShadowEffect x:Name="Drop_shadow_button" Opacity="0.5" BlurRadius="6"/>
-                </Rectangle.Effect>
-            </Rectangle>
-            <Label x:Name="LogIn_button_text" Content="{DynamicResource LogIn}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainGreen}" MouseEnter="LogIn_button_text_MouseEnter" MouseLeave="LogIn_button_text_MouseLeave" Cursor="Hand"/>
+        <Grid x:Name="Login_Button_Grid" Margin="292,377,293,65" MouseUp="Login">
+            <Rectangle x:Name="Log_In_Button" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondBlue}"/>
+            <Label x:Name="LogIn_button_text" Content="{DynamicResource LogIn}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource MainBlue}" Cursor="Hand"/>
         </Grid>
-        <Grid Margin="237,311,237,131">
-            <Rectangle x:Name="Text_box_password" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}">
-                <Rectangle.Effect>
-                    <DropShadowEffect x:Name="Drop_shadow_Text_box_password" Opacity="0.5" BlurRadius="6"/>
-                </Rectangle.Effect>
-            </Rectangle>
-            <Rectangle x:Name="Little_2" Fill="{DynamicResource SecondGreen}" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
-            <TextBox x:Name="Text_box_password_text" HorizontalAlignment="Left" Height="56" TextWrapping="Wrap" Text="{DynamicResource Password}" VerticalAlignment="Top" Width="268" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainGreen}" MouseEnter="Text_box_password_text_MouseEnter" MouseLeave="Text_box_password_text_MouseLeave" LostFocus="Text_box_password_text_LostFocus" GotFocus="Text_box_password_text_GotFocus" TextChanged="Text_box_password_text_TextChanged"/>
+        <Grid x:Name="Password_Grid" Margin="237,311,237,131">
+            <Rectangle x:Name="Text_box_password" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondBlue}"/>
+            <TextBox x:Name="Text_box_password_text" HorizontalAlignment="Left" Height="56" TextWrapping="Wrap" Text="{DynamicResource Password}" VerticalAlignment="Top" Width="268" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource MainBlue}" GotFocus="TextEffectGotFocus" LostFocus="TextEffectLostFocus"/>
         </Grid>
-        <Grid Margin="237,244,237,198">
-            <Rectangle x:Name="Text_box_Login" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondGreen}">
-                <Rectangle.Effect>
-                    <DropShadowEffect x:Name="Drop_shadow_Text_box_login" Opacity="0.5" BlurRadius="6"/>
-                </Rectangle.Effect>
-            </Rectangle>
-            <Rectangle x:Name="Little_1" Fill="{DynamicResource SecondGreen}" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
-            <TextBox x:Name="Text_box_Login_text" TextWrapping="Wrap" Text="{DynamicResource Login}" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" MouseEnter="Text_box_Login_text_MouseEnter" MouseLeave="Text_box_Login_text_MouseLeave" Foreground="{DynamicResource MainGreen}" HorizontalScrollBarVisibility="Auto" GotFocus="Text_box_Login_text_GotFocus" LostFocus="Text_box_Login_text_LostFocus" />
+        <Grid x:Name="Login_grid" Margin="237,244,237,198">
+            <Rectangle x:Name="Text_box_Login" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource SecondBlue}"/>
+            <TextBox x:Name="Text_box_Login_text" TextWrapping="Wrap" Text="{DynamicResource Login}" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#B2BFBFBF" VerticalContentAlignment="Center" Padding="20,0,0,0" FontSize="20" Foreground="{DynamicResource MainBlue}" HorizontalScrollBarVisibility="Auto" GotFocus="TextEffectGotFocus" LostFocus="TextEffectLostFocus" />
         </Grid>
-        <Ellipse x:Name="Button_close" Fill="{DynamicResource SecondGreen}" Height="47" Margin="670,25,25,426" Width="47" MouseEnter="Button_close_MouseEnter" MouseLeave="Button_close_MouseLeave" Cursor="Hand" MouseUp="Button_close_MouseUp" >
-            <Ellipse.Effect>
-                <DropShadowEffect x:Name="Close_Button_Shadow" Opacity="0.5"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <Ellipse x:Name="Button_svernut" Fill="{DynamicResource SecondGreen}" Height="47" Margin="610,25,85,426" Width="47" MouseLeftButtonUp="Button_svernut_MouseLeftButtonUp" MouseEnter="Button_svernut_MouseEnter" MouseLeave="Button_svernut_MouseLeave" Cursor="Hand">
-            <Ellipse.Effect>
-                <DropShadowEffect x:Name="Svernut_shadow" Opacity="0.5"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <Ellipse x:Name="Button_resize_window" Fill="{DynamicResource SecondGreen}" Height="47" Margin="550,25,145,426" Width="47">
-            <Ellipse.Effect>
-                <DropShadowEffect Opacity="0.5"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <local:Language x:Name="Language_button" HorizontalAlignment="Left" Height="70" Margin="632,412,0,0" VerticalAlignment="Top" Width="100" MouseLeftButtonUp="Language_MouseRightButtonUp" Loaded="Language_button_Loaded"/>
-        <Label x:Name="Main_label" Content="SAVE MY MONEY" Margin="0,94,0,0" VerticalAlignment="Top" FontFamily="Onyx" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{DynamicResource SecondGreen}" FontSize="120">
+        <Grid x:Name="Button_close_grid" HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="48" Margin="670,26,0,0" MouseUp="Close">
+            <Ellipse x:Name="Button_close" Fill="{DynamicResource SecondBlue}" Cursor="Hand" />
+        </Grid>
+        <Grid x:Name="Button_svernut_grid" HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="48" Margin="610,26,0,0" MouseUp="Svernut">
+            <Ellipse x:Name="Button_svernut" Fill="{DynamicResource SecondBlue}" Cursor="Hand"/>
+        </Grid>
+        <local:Language x:Name="Language_button" HorizontalAlignment="Left" Height="70" Margin="632,412,0,0" VerticalAlignment="Top" Width="100" MouseUp="ChangeLang"/>
+        <Label x:Name="Main_label" Content="SAVE MY MONEY" Margin="0,94,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Light" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{DynamicResource SecondBlue}" FontSize="80" Height="128" FontWeight="Bold">
             <Label.Effect>
                 <DropShadowEffect x:Name="Forever_shadow" Opacity="0.5"/>
             </Label.Effect>
         </Label>
-        <Label Content="{DynamicResource Registration}" HorizontalAlignment="Left" Margin="306,443,0,16" Cursor="Hand" FontSize="22" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource SecondGreen}" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseUp="Label_MouseUp"/>
+        <Label Content="{DynamicResource Registration}" HorizontalAlignment="Left" Margin="306,443,0,16" Cursor="Hand" FontSize="22" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource SecondBlue}" MouseUp="OpenRegistrationForm"/>
     </Grid>
 </Window>

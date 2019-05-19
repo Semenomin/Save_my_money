@@ -8,11 +8,12 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resorses/Dictionary_rus.xaml" />
                 <ResourceDictionary Source="Resorses/Dictionary_eng.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.red.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+                 </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="MainBlue" Color="#FF1F4B55"/>
+            <SolidColorBrush x:Key="SecondBlue" Color="#FF32706A"/>
+            <FontFamily x:Key="MainFont">Garamond</FontFamily>
+            <DropShadowEffect x:Key="Shadow_Leave" x:Name="Drop_shadow_Text_box_login" Opacity="0.5" BlurRadius="6"/>
+            <DropShadowEffect x:Key="Shadow_Enter" x:Name="Drop_shadow_Text_box_login1" Opacity="0" BlurRadius="6"/>
         </ResourceDictionary>
        
     </Application.Resources>
