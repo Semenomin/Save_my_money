@@ -1,0 +1,17 @@
+﻿<Window x:Class="SaveMyMoney.MasterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaveMyMoney"
+        mc:Ignorable="d"
+        Title="MasterWindow" Height="488.532" Width="539.45">
+    <Grid Background="{DynamicResource MainBlue}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="103*"/>
+            <RowDefinition Height="359*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Master Window" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{DynamicResource SecondBlue}" FontSize="48" FontFamily="Segoe UI Light"/>
+
+    </Grid>
+</Window>

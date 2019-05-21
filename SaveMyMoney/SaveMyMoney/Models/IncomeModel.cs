@@ -51,7 +51,7 @@ namespace SaveMyMoney
             {
                 string money = $"{ListJarsMoney[i]}";
                 money = money.Replace(',', '.');
-                string sqlExpression = $"Update jars set Money = Money+{money} where Id_User = '{User.Id}' and Jar = '{i}'";
+                string sqlExpression = $"Declare @id tinyint = '{User.Id}',@Money money = {money},@Jar tinyint = '{i}' exec UpdateJarsIncome @id,@Money,@Jar";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -64,7 +64,7 @@ namespace SaveMyMoney
         {
             string money = Money.ToString();
             money = money.Replace(',', '.');
-            string sqlExpression2 = $"INSERT INTO Income (Id_user,Name,Money,Description,Period,Date) values('{User.Id}','{Name}','{money}','{Description}','{Period}',GETDATE());";
+            string sqlExpression2 = $"Declare @id tinyint = '{User.Id}',@name nvarchar(50) = '{Name}',@money money = '{Money}',@desc nvarchar(50) = '{Description}',@Period tinyint = '{Period}' exec AddIncome @id,@name,@money,@desc,@Period";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

@@ -31,12 +31,17 @@
         <Grid x:Name="Button_svernut_grid" HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="48" Margin="610,26,0,0" MouseUp="Svernut">
             <Ellipse x:Name="Button_svernut" Fill="{DynamicResource SecondBlue}" Cursor="Hand"/>
         </Grid>
-        <local:Language x:Name="Language_button" HorizontalAlignment="Left" Height="70" Margin="632,412,0,0" VerticalAlignment="Top" Width="100" MouseUp="ChangeLang"/>
         <Label x:Name="Main_label" Content="SAVE MY MONEY" Margin="0,94,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Light" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{DynamicResource SecondBlue}" FontSize="80" Height="128" FontWeight="Bold">
             <Label.Effect>
                 <DropShadowEffect x:Name="Forever_shadow" Opacity="0.5"/>
             </Label.Effect>
         </Label>
         <Label Content="{DynamicResource Registration}" HorizontalAlignment="Left" Margin="306,443,0,16" Cursor="Hand" FontSize="22" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource SecondBlue}" MouseUp="OpenRegistrationForm"/>
+        <Grid x:Name="Lang_grid" HorizontalAlignment="Left" Height="77" Margin="625,400,0,0" VerticalAlignment="Top" Width="108" MouseUp="ChangeLang" Cursor="Hand">
+            <Rectangle Fill="{DynamicResource SecondBlue}" Height="23" VerticalAlignment="Bottom" Width="108"/>
+            <Rectangle Fill="{DynamicResource SecondBlue}" Height="23" VerticalAlignment="Center" Width="108"/>
+            <Rectangle Fill="{DynamicResource SecondBlue}" Height="23" VerticalAlignment="Top" Width="108" HorizontalAlignment="Center"/>
+            <Label Content="{DynamicResource Language}" Height="39" Width="108" Background="{x:Null}" Foreground="{DynamicResource MainBlue}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Grid>
     </Grid>
 </Window>

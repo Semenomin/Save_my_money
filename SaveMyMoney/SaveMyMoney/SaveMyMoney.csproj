@@ -93,10 +93,12 @@
     <Compile Include="History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MasterWindow.xaml.cs">
+      <DependentUpon>MasterWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MessageBox.xaml.cs">
       <DependentUpon>MessageBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\DebtModel.cs" />
     <Compile Include="Models\ExpenseModel.cs" />
     <Compile Include="Models\IncomeModel.cs" />
     <Compile Include="Models\PlannerModel.cs" />
@@ -117,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="History.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MasterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

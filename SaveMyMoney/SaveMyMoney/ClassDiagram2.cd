@@ -40,13 +40,13 @@
   <Class Name="SaveMyMoney.History" BaseTypeListCollapsed="true">
     <Position X="3.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAgAAAAAAAACQAAAAAAAIAAAAAAAEAKAAAA=</HashCode>
+      <HashCode>AAAAAAACAAgAAAAAAAACQAAAAAAAIAAAAAAAAAKAAAA=</HashCode>
       <FileName>History.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="SaveMyMoney.MainWindow" BaseTypeListCollapsed="true">
-    <Position X="12.5" Y="2.25" Width="1.5" />
+    <Position X="3.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAADAAAAAAgAAAQAAAAAAABAACAAAgAwEAaAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
@@ -54,19 +54,12 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="SaveMyMoney.MessageBox" BaseTypeListCollapsed="true">
-    <Position X="12.5" Y="0.5" Width="1.5" />
+    <Position X="5.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MessageBox.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="SaveMyMoney.DebtModel">
-    <Position X="5.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAgAAqAAABAAAAAAAAAAACAAABAAAAAAAAAAA=</HashCode>
-      <FileName>Models\DebtModel.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="SaveMyMoney.ExpenseModel">
     <Position X="3.75" Y="0.5" Width="1.5" />
@@ -97,7 +90,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SaveMyMoney.UserModel">
-    <Position X="3.75" Y="7" Width="1.5" />
+    <Position X="5.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\UserModel.cs</FileName>
@@ -127,14 +120,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SaveMyMoney.UI.Trigger">
-    <Position X="5.5" Y="7.25" Width="1.5" />
+    <Position X="5.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAACAAAgAAAAAAAAAAAAAACAABA=</HashCode>
       <FileName>Classes\UI\Trigger.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SaveMyMoney.UI.Visibility">
-    <Position X="5.5" Y="5.25" Width="1.5" />
+    <Position X="5.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\UI\Visibility.cs</FileName>

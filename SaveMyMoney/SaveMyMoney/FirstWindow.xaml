@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SaveMyMoney"
-        xmlns:User_Controls="clr-namespace:SaveMyMoney.User_Controls" x:Name="wwwindow" x:Class="SaveMyMoney.FirstWindow"
+        x:Name="wwwindow" x:Class="SaveMyMoney.FirstWindow"
         mc:Ignorable="d"
         Title="FirstWindow" Height="553" MinWidth="750" MinHeight="553" Width="890.734" WindowStyle="None">
     <Grid x:Name="Main_grid" Background="{DynamicResource MainBlue}" Margin="0">

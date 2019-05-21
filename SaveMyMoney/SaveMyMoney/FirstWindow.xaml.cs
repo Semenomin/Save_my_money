@@ -197,7 +197,6 @@ namespace SaveMyMoney
             Planner planner = new Planner(lang, User);
             planner.Show();
         }
-
         #endregion
         #region Pages
         private void Jar1(object sender, MouseButtonEventArgs e)
@@ -253,7 +252,7 @@ namespace SaveMyMoney
         }
         private void UseSelectedJar()
         {
-            string sqlExpression = $"Select * from Jars where Id_user='{User.Id}' and jar='{Jar}'";
+            string sqlExpression = $"Declare @id tinyint = {User.Id}, @jar int = {Jar} exec GetSelectedJar @id,@jar";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -368,7 +367,7 @@ namespace SaveMyMoney
             string sqlExpression;
             if (mod == "Expense")
             {
-                sqlExpression = $"Select Max(Id) from Expense";
+                sqlExpression = $"exec GetLastId";
             }
             else
             {

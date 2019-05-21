@@ -38,10 +38,6 @@ namespace SaveMyMoney
         {
             this.DragMove();
         }
-        private void DeleteString(object sender, MouseButtonEventArgs e)
-        {
-           
-        }
         private void SetLanguage(string lang)
         {
             if (lang == "RUS")

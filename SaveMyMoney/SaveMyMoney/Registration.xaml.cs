@@ -66,7 +66,7 @@ namespace SaveMyMoney
         }
         private bool CheckLogin(RegistrationModel model)
         {
-            string sqlExpression = $"Select Login from Users where Login = '{model.Login}'";
+            string sqlExpression = $"declare @login nvarchar(50) = '{model.Login}' exec CheckLogin @login";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -103,7 +103,7 @@ namespace SaveMyMoney
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sqlExpression = $"Select Id from Users where Login like '{model.Login}'";
+                string sqlExpression = $"declare @login nvarchar(50) = '{model.Login}' exec Getid @login";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows) // если есть данные
@@ -122,7 +122,7 @@ namespace SaveMyMoney
                 connection.Open();
                 for (int a = 1; a <= 6; a++)
                 {
-                    string sqlExpression = $"INSERT INTO Jars (Id_user,Jar,Money) VALUES ({model.Id},'{a}','0')";
+                    string sqlExpression = $"declare @id tinyint = '{model.Id}',@jar int = '{a}' exec AddJars @id ,@Jar";
                     SqlCommand command = new SqlCommand(sqlExpression, connection);
                     int num = command.ExecuteNonQuery();
                 }
@@ -130,19 +130,25 @@ namespace SaveMyMoney
         }
         private void Registrate(object sender, MouseButtonEventArgs e)
         {
-            
-            RegistrationModel model = GetModel();
-            Validate(model);
-            string sqlExpression = $"INSERT INTO Users (Login,Password,Name) VALUES ('{model.Login}', '{model.Password}', '{model.Name}')";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                command.ExecuteNonQuery();
+                RegistrationModel model = GetModel();
+                Validate(model);
+                string sqlExpression = $"declare @login nvarchar(50)='{model.Login}', @password nvarchar(50) = '{model.Password}', @name nvarchar(50) = '{model.Name}' exec AddUser @login,@password,@name";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    command.ExecuteNonQuery();
+                }
+                GetUserId(ref model);
+                CreateJars(model);
+                this.Close();
             }
-            GetUserId(ref model);
-            CreateJars(model);
-            this.Close();
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
 
         }
         private void LoginT_GotFocus(object sender, RoutedEventArgs e)

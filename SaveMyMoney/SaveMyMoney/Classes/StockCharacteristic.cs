@@ -74,7 +74,7 @@ namespace SaveMyMoney
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string sqlExpression = $"declare @id tinyint = {User.Id} exec GetIncome @id";
+                string sqlExpression = $"declare @id tinyint = {User.Id} exec GetExpense @id";
                 connection.Open();
                 SqlCommand sqlCommand = new SqlCommand(sqlExpression, connection);
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();

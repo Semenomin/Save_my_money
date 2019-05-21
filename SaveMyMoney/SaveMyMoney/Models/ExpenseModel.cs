@@ -48,7 +48,7 @@ namespace SaveMyMoney
         {
             string money = Money.ToString();
             money = money.Replace(',', '.');
-            string sqlExpression = $"Declare @id tinyint = '{User.Id}',@Money money = {money},@Jar tinyint = '{Jar}' exec UpdateJars @id,@Money,@Jar";
+            string sqlExpression = $"Declare @id tinyint = '{User.Id}',@Money money = {money},@Jar tinyint = '{Jar}' exec UpdateJarsExpense @id,@Money,@Jar";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

@@ -35,12 +35,13 @@ namespace SaveMyMoney
             ListShadowEffect.Add(Password_Grid);
             ListShadowEffect.Add(Button_close_grid);
             ListShadowEffect.Add(Button_svernut_grid);
+            ListShadowEffect.Add(Lang_grid);
             return ListShadowEffect;
         }
 
-        private UserModel    GetUserModel()
+        private UserModel GetUserModel()
         {
-            string sqlExpression = $"Select id,name from Users where Login = '{Text_box_Login_text.Text}' and Password = '{Text_box_password_text.Text}'";
+            string sqlExpression = $"declare @login nvarchar(50) = '{Text_box_Login_text.Text}', @password nvarchar(50) = '{Text_box_password_text.Text}' exec GetUser @login,@password";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -62,7 +63,7 @@ namespace SaveMyMoney
             }
         }
 
-        private void Login               (object sender, MouseButtonEventArgs e)
+        private void Login(object sender, MouseButtonEventArgs e)
         {
             try
             {
@@ -76,7 +77,7 @@ namespace SaveMyMoney
                 MessageBox.Show(exc.Message);
             }
         }
-        private void ChangeLang          (object sender, MouseButtonEventArgs e)
+        private void ChangeLang(object sender, MouseButtonEventArgs e)
         {
             if (lang == "ENG")
             {
@@ -89,11 +90,11 @@ namespace SaveMyMoney
                 this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_eng.xaml") };
             }
         }
-        private void Close               (object sender, MouseButtonEventArgs e)
+        private void Close(object sender, MouseButtonEventArgs e)
         {
             this.Close();
         }
-        private void Svernut             (object sender, MouseButtonEventArgs e)
+        private void Svernut(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
@@ -102,8 +103,8 @@ namespace SaveMyMoney
             Registration reg = new Registration(lang);
             reg.ShowDialog();
         }
-  
-        private void TextEffectGotFocus (object sender, RoutedEventArgs e)
+
+        private void TextEffectGotFocus(object sender, RoutedEventArgs e)
         {
             if (Text_box_Login_text.Text == "Login" || Text_box_Login_text.Text == "Логин")
                 Text_box_Login_text.Text = "";
@@ -117,7 +118,7 @@ namespace SaveMyMoney
             if (Text_box_password_text.Text == "")
                 Text_box_password_text.Text = this.TryFindResource("Password").ToString();
         }
-        private void LogIn_form_Loaded  (object sender, RoutedEventArgs e)
+        private void LogIn_form_Loaded(object sender, RoutedEventArgs e)
         {
             ColculatePlanner();
         }
@@ -131,6 +132,6 @@ namespace SaveMyMoney
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.ExecuteNonQuery();
             }
-        }  
+        }
     }
 }
