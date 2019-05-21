@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Effects;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+
 namespace SaveMyMoney
 {
 
@@ -22,30 +23,14 @@ namespace SaveMyMoney
     public partial class Registration : Window
     {
         string lang;
-        List<Grid> ListShadowEffect = new List<Grid>();
         string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
-        DropShadowEffect Shadow_Enter = new DropShadowEffect()
-        {
-            BlurRadius = 6,
-            Direction = 315,
-            Opacity = 0,
-            ShadowDepth = 5
-        };
-        DropShadowEffect Shadow_Leave = new DropShadowEffect()
-        {
-            BlurRadius = 6,
-            Direction = 315,
-            Opacity = 0.5,
-            ShadowDepth = 5
-        };
+
         public Registration(string lang)
         {
             this.lang = lang;
             SetLanguage(lang);
             InitializeComponent();
-            AddToListShadowEffect();
-            SetShadow();
-            AddEventsToListShadowEffect();
+            UI.Shadow shadow =new UI.Shadow(AddToListShadowEffect());
         }
         private void SetLanguage(string lang)
         {
@@ -58,39 +43,17 @@ namespace SaveMyMoney
                 this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_eng.xaml") };
             }
         }
-        private void AddToListShadowEffect()
+        private List<Grid> AddToListShadowEffect()
         {
+            List<Grid> ListShadowEffect = new List<Grid>();
             ListShadowEffect.Add(A1);
             ListShadowEffect.Add(A2);
             ListShadowEffect.Add(A3);
             ListShadowEffect.Add(A4);
             ListShadowEffect.Add(Registrate_button);
+            return ListShadowEffect;
         }
-        private void AddEventsToListShadowEffect()
-        {
-            foreach (Grid a in ListShadowEffect)
-            {
-                a.MouseEnter += ShadowEffect_Enter;
-                a.MouseLeave += ShadowEffect_Leave;
-            }
-        }
-        private void SetShadow()
-        {
-            foreach (Grid a in ListShadowEffect)
-            {
-                a.Effect = Shadow_Leave;
-            }
-        }
-        private void ShadowEffect_Enter(object sender, MouseEventArgs e)
-        {
-            Grid a = sender as Grid;
-            a.Effect = Shadow_Enter;
-        }
-        private void ShadowEffect_Leave(object sender, MouseEventArgs e)
-        {
-            Grid a = sender as Grid;
-            a.Effect = Shadow_Leave;
-        }
+
         private RegistrationModel GetModel()
         {
             return new RegistrationModel
@@ -167,25 +130,20 @@ namespace SaveMyMoney
         }
         private void Registrate(object sender, MouseButtonEventArgs e)
         {
-            try
+            
+            RegistrationModel model = GetModel();
+            Validate(model);
+            string sqlExpression = $"INSERT INTO Users (Login,Password,Name) VALUES ('{model.Login}', '{model.Password}', '{model.Name}')";
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                RegistrationModel model = GetModel();
-                Validate(model);
-                string sqlExpression = $"INSERT INTO Users (Login,Password,Name) VALUES ('{model.Login}', '{model.Password}', '{model.Name}')";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    command.ExecuteNonQuery();
-                }
-                GetUserId(ref model);
-                CreateJars(model);
-                this.Close();
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.ExecuteNonQuery();
             }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
+            GetUserId(ref model);
+            CreateJars(model);
+            this.Close();
+
         }
         private void LoginT_GotFocus(object sender, RoutedEventArgs e)
         {

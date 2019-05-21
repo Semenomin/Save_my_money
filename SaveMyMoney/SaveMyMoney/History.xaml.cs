@@ -16,49 +16,14 @@ using System.Windows.Media.Effects;
 
 namespace SaveMyMoney
 {
-    class StockCharacteristic
-    {
-        public object Name { get; set; }
-        public object Amount { get; set; }
-        public object Period { get; set; }
-        public object Date { get; set; }
-        public object Description { get; set; }
-    }
-
     public partial class History : Window
     {
-        string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
-        List<Grid> ListShadowEffect = new List<Grid>();
-        DropShadowEffect Shadow_Enter = new DropShadowEffect()
-        {
-            BlurRadius = 6,
-            Direction = 315,
-            Opacity = 0,
-            ShadowDepth = 5
-        };
-        DropShadowEffect Shadow_Leave = new DropShadowEffect()
-        {
-            BlurRadius = 6,
-            Direction = 315,
-            Opacity = 0.5,
-            ShadowDepth = 5
-        };
-
         public History(UserModel user, string Database, string lang)
         {
             SetLanguage(lang);
             InitializeComponent();
-            AddToListShadowEffect();
-            AddEventsToListShadowEffect();
-            SetShadow();
-            if (Database == "Income")
-            {
-                AddIncomesInTable(user);
-            }
-            else if (Database == "Expense")
-            {
-                AddExpensesInTable(user);
-            }
+            UI.Shadow shadow = new UI.Shadow(AddToListShadowEffect());
+            StockCharacteristic stock = new StockCharacteristic(user, Database, ref stockGrid);
         }
 
         private void Close(object sender, MouseButtonEventArgs e)
@@ -75,9 +40,8 @@ namespace SaveMyMoney
         }
         private void DeleteString(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+           
         }
-
         private void SetLanguage(string lang)
         {
             if (lang == "RUS")
@@ -89,101 +53,36 @@ namespace SaveMyMoney
                 this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_eng.xaml") };
             }
         }
-
-        private void AddToListShadowEffect      ()
+        private List<Grid> AddToListShadowEffect()
         {
+            List<Grid> ListShadowEffect = new List<Grid>();
             ListShadowEffect.Add(Button_close_grid);
             ListShadowEffect.Add(Button_svernut_grid);
             ListShadowEffect.Add(Delete_button);
-            ListShadowEffect.Add(Update_button);
-        }
-        private void AddEventsToListShadowEffect()
-        {
-            foreach (Grid a in ListShadowEffect)
-            {
-                a.MouseEnter += ShadowEffect_Enter;
-                a.MouseLeave += ShadowEffect_Leave;
-            }
-        }
-        private void SetShadow                  ()
-        {
-            foreach (Grid a in ListShadowEffect)
-            {
-                a.Effect = Shadow_Leave;
-            }
-        }
-        private void ShadowEffect_Enter         (object sender, MouseEventArgs e)
-        {
-            Grid a = sender as Grid;
-            a.Effect = Shadow_Enter;
-        }
-        private void ShadowEffect_Leave         (object sender, MouseEventArgs e)
-        {
-            Grid a = sender as Grid;
-            a.Effect = Shadow_Leave;
+            return ListShadowEffect;
         }
 
-        private void AddIncomesInTable(UserModel User)
+        private int GetSelectedIndex()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            int selectedColumn = 0;
+            var selectedCell = stockGrid.SelectedCells[selectedColumn];
+            var cellContent = selectedCell.Column.GetCellContent(selectedCell.Item);
+            if (cellContent is TextBlock)
             {
-                string sqlExpression = $"SELECT * FROM Income where Id_user='{User.Id}'";
-                connection.Open();
-                SqlCommand sqlCommand = new SqlCommand(sqlExpression, connection);
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                if (sqlDataReader.HasRows)
-                {
-                    List<StockCharacteristic> listincome = new List<StockCharacteristic>();
-                    while (sqlDataReader.Read())
-                    {
-                        StockCharacteristic income = new StockCharacteristic()
-                        {
-                            Name = sqlDataReader.GetValue(2),
-                            Amount = sqlDataReader.GetValue(3),
-                            Description = sqlDataReader.GetValue(4),
-                            Period = sqlDataReader.GetValue(5),
-                            Date = sqlDataReader.GetValue(6)
-                        };
-                        listincome.Add(income);
-                    }
-                    stockGrid.ItemsSource = listincome;
-                }
-                else
-                {
-                    MessageBox.Show("No strings!");
-                }
+                return int.Parse((cellContent as TextBlock).Text);
             }
+            throw new Exception("Bad Trip");
         }
-        private void AddExpensesInTable(UserModel User)
+        private string GetSelectedType()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            int selectedColumn = 1;
+            var selectedCell = stockGrid.SelectedCells[selectedColumn];
+            var cellContent = selectedCell.Column.GetCellContent(selectedCell.Item);
+            if (cellContent is TextBlock)
             {
-                string sqlExpression = $"SELECT * FROM Expense where Id_user='{User.Id}'";
-                connection.Open();
-                SqlCommand sqlCommand = new SqlCommand(sqlExpression, connection);
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                if (sqlDataReader.HasRows)
-                {
-                    List<StockCharacteristic> listexpense = new List<StockCharacteristic>();
-                    while (sqlDataReader.Read())
-                    {
-                        StockCharacteristic expense = new StockCharacteristic()
-                        {
-                            Name = sqlDataReader.GetValue(2),
-                            Amount = sqlDataReader.GetValue(3),
-                            Description = sqlDataReader.GetValue(4),
-                            Period = sqlDataReader.GetValue(5),
-                            Date = sqlDataReader.GetValue(6)
-                        };
-                        listexpense.Add(expense);
-                    }
-                    stockGrid.ItemsSource = listexpense;
-                }
-                else
-                {
-                    MessageBox.Show("No strings!");
-                }
+                return ((cellContent as TextBlock).Text);
             }
+            throw new Exception("Bad Trip");
         }
 
 

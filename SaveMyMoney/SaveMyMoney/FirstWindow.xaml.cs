@@ -19,77 +19,18 @@ namespace SaveMyMoney
 
     public partial class FirstWindow : Window
     {
-
+        #region Variables
         string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
         string bufer;
         string lang;
         UserModel User;
         int Jar;
-        List<Grid> ListShadowEffect = new List<Grid>();
-        List<Grid> ListTriggerEffect = new List<Grid>();
-        List<Grid> ListVisibilityEffect = new List<Grid>();
-
-        DropShadowEffect Shadow_Enter = new DropShadowEffect()
+        UI.Visibility visibility;
+        #endregion
+        #region Add In List
+        private List<Grid> AddToListShadowEffect()
         {
-            BlurRadius = 6,
-            Direction = 315,
-            Opacity = 0,
-            ShadowDepth = 5
-        };
-        DropShadowEffect Shadow_Leave = new DropShadowEffect()
-        {
-            BlurRadius = 6,
-            Direction = 315,
-            Opacity = 0.5,
-            ShadowDepth = 5
-        };
-
-        private void TriggerEffect_Enter(object sender, MouseEventArgs e)
-        {
-            Grid a = sender as Grid;
-            a.Opacity = 0.5;
-        }
-        private void TriggerEffect_Leave(object sender, MouseEventArgs e)
-        {
-            Grid a = sender as Grid;
-            a.Opacity = 1;
-        }
-        private void AddToListTriggerEffect()
-        {
-            ListTriggerEffect.Add(Menu1);
-            ListTriggerEffect.Add(Menu2);
-            ListTriggerEffect.Add(Menu3);
-            ListTriggerEffect.Add(Menu4);
-            ListTriggerEffect.Add(Menu5);
-            ListTriggerEffect.Add(Menu6);
-            ListTriggerEffect.Add(Menu7);
-            ListTriggerEffect.Add(Creator);
-            ListTriggerEffect.Add(Language_grid);
-            ListTriggerEffect.Add(Settings_grid);
-            ListTriggerEffect.Add(LogOut_grid);
-
-        }
-        private void AddEventsToListTriggerEffect()
-        {
-            foreach (Grid a in ListTriggerEffect)
-            {
-                a.MouseEnter += TriggerEffect_Enter;
-                a.MouseLeave += TriggerEffect_Leave;
-            }
-        }
-
-        private void ShadowEffect_Enter(object sender, MouseEventArgs e)
-        {
-            Grid a = sender as Grid;
-            a.Effect = Shadow_Enter;
-        }
-        private void ShadowEffect_Leave(object sender, MouseEventArgs e)
-        {
-            Grid a = sender as Grid;
-            a.Effect = Shadow_Leave;
-        }
-        private void AddToListShadowEffect()
-        {
+            List<Grid> ListShadowEffect = new List<Grid>();
             ListShadowEffect.Add(Button_close_grid);
             ListShadowEffect.Add(Button_svernut_grid);
             ListShadowEffect.Add(Income_name_grid);
@@ -105,25 +46,27 @@ namespace SaveMyMoney
             ListShadowEffect.Add(Expense_Money);
             ListShadowEffect.Add(Expense_Period);
             ListShadowEffect.Add(Expense_Description);
+            return ListShadowEffect;
         }
-        private void AddEventsToListShadowEffect()
+        private List<Grid> AddToListTriggerEffect()
         {
-            foreach (Grid a in ListShadowEffect)
-            {
-                a.MouseEnter += ShadowEffect_Enter;
-                a.MouseLeave += ShadowEffect_Leave;
-            }
+            List<Grid> ListTriggerEffect = new List<Grid>();
+            ListTriggerEffect.Add(Menu1);
+            ListTriggerEffect.Add(Menu2);
+            ListTriggerEffect.Add(Menu3);
+            ListTriggerEffect.Add(Menu4);
+            ListTriggerEffect.Add(Menu5);
+            ListTriggerEffect.Add(Menu6);
+            ListTriggerEffect.Add(Menu7);
+            ListTriggerEffect.Add(Creator);
+            ListTriggerEffect.Add(Language_grid);
+            ListTriggerEffect.Add(Settings_grid);
+            ListTriggerEffect.Add(LogOut_grid);
+            return ListTriggerEffect;
         }
-        private void SetShadow()
+        private List<Grid> AddToListVisibilityEffect()
         {
-            foreach (Grid a in ListShadowEffect)
-            {
-                a.Effect = Shadow_Leave;
-            }
-        }
-
-        private void AddToListVisibilityEffect()
-        {
+            List<Grid> ListVisibilityEffect = new List<Grid>();
             ListVisibilityEffect.Add(SettingsMenu);
             ListVisibilityEffect.Add(Expense_Grid);
             ListVisibilityEffect.Add(Income_grid);
@@ -133,27 +76,26 @@ namespace SaveMyMoney
             ListVisibilityEffect.Add(Label_Jar4);
             ListVisibilityEffect.Add(Label_Jar5);
             ListVisibilityEffect.Add(Label_Jar6);
+            return ListVisibilityEffect;
         }
-        private void SetHiddenVisibility()
+        private void AddEventsToMenuItems()
         {
-            foreach (Grid a in ListVisibilityEffect)
-            {
-                a.Visibility = Visibility.Hidden;
-            }
+            Menu1.MouseUp += Income;
+            Menu2.MouseUp += Jar1;
+            Menu3.MouseUp += Jar2;
+            Menu4.MouseUp += Jar3;
+            Menu5.MouseUp += Jar4;
+            Menu6.MouseUp += Jar5;
+            Menu7.MouseUp += Jar6;
+            Menu2.MouseUp += SetExpenseVisible;
+            Menu3.MouseUp += SetExpenseVisible;
+            Menu4.MouseUp += SetExpenseVisible;
+            Menu5.MouseUp += SetExpenseVisible;
+            Menu6.MouseUp += SetExpenseVisible;
+            Menu7.MouseUp += SetExpenseVisible;
         }
-
-        private void SetLanguage(string lang)
-        {
-            if (lang == "RUS")
-            {
-                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_rus.xaml") };
-            }
-            else
-            {
-                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_eng.xaml") };
-            }
-        }
-
+        #endregion
+        #region Income
         private void AddIncome(object sender, MouseButtonEventArgs e)
         {
             try
@@ -167,9 +109,7 @@ namespace SaveMyMoney
                     Description = Income_DescT.Text.ToString(),
                     Period = int.Parse(Income_PeriodT.Text.ToString())
                 };
-                List<float> ListJarsMoney = DivideIncome(income);
-                AddMoneyInJars(ListJarsMoney);
-                AddIncomeInDatabase(income);
+                income.Work(User);
                 income.Id = GetLastId("Income");
                 RestartIncome();
                 CreatePlanner(User, "Income", null, income);
@@ -178,18 +118,6 @@ namespace SaveMyMoney
             {
                 MessageBox.Show(exc.Message);
             }
-        }
-        private List<float> DivideIncome(IncomeModel income)
-        {
-            List<float> ListJarsMoney = new List<float>();
-            ListJarsMoney.Add(0);
-            ListJarsMoney.Add((income.Money / 100) * 55);
-            ListJarsMoney.Add((income.Money / 100) * 10);
-            ListJarsMoney.Add((income.Money / 100) * 10);
-            ListJarsMoney.Add((income.Money / 100) * 10);
-            ListJarsMoney.Add((income.Money / 100) * 10);
-            ListJarsMoney.Add((income.Money / 100) * 5);
-            return ListJarsMoney;
         }
         private void ValidateIncome()
         {
@@ -206,33 +134,6 @@ namespace SaveMyMoney
             else throw new Exception("Invalid Money Amount");
 
         }
-        private void AddMoneyInJars(List<float> ListJarsMoney)
-        {
-            for (int i = 1; i < 7; i++)
-            {
-                string money = $"{ListJarsMoney[i]}";
-                money = money.Replace(',', '.');
-                string sqlExpression = $"Update jars set Money = Money+{money} where Id_User = '{User.Id}' and Jar = '{i}'";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int a = command.ExecuteNonQuery();
-                }
-            }
-        }
-        private void AddIncomeInDatabase(IncomeModel income)
-        {
-            string money = income.Money.ToString();
-            money = money.Replace(',', '.');
-            string sqlExpression2 = $"INSERT INTO Income (Id_user,Name,Money,Description,Period,Date) values('{User.Id}','{income.Name}','{money}','{income.Description}','{income.Period}',GETDATE());";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression2, connection);
-                int a = command.ExecuteNonQuery();
-            }
-        }
         private void RestartIncome()
         {
             Income_MoneyT.Text = TryFindResource("Money_amount") as string;
@@ -240,7 +141,8 @@ namespace SaveMyMoney
             Income_DescT.Text = TryFindResource("Description") as string;
             Income_PeriodT.Text = TryFindResource("Period") as string;
         }
-
+        #endregion
+        #region Mouse Click
         private void Close(object sender, MouseButtonEventArgs e)
         {
             this.Close();
@@ -290,69 +192,59 @@ namespace SaveMyMoney
             mainWindow.Show();
             this.Close();
         }
-        
-        private void AddEventsToMenuItems()
+        private void OpenPlanner(object sender, MouseButtonEventArgs e)
         {
-            Menu1.MouseUp += Income;
-            Menu2.MouseUp += Jar1;
-            Menu3.MouseUp += Jar2;
-            Menu4.MouseUp += Jar3;
-            Menu5.MouseUp += Jar4;
-            Menu6.MouseUp += Jar5;
-            Menu7.MouseUp += Jar6;
-            Menu2.MouseUp += SetExpenseVisible;
-            Menu3.MouseUp += SetExpenseVisible;
-            Menu4.MouseUp += SetExpenseVisible;
-            Menu5.MouseUp += SetExpenseVisible;
-            Menu6.MouseUp += SetExpenseVisible;
-            Menu7.MouseUp += SetExpenseVisible;
+            Planner planner = new Planner(lang, User);
+            planner.Show();
         }
 
+        #endregion
+        #region Pages
         private void Jar1(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 1;
-            SetHiddenVisibility();
+            visibility.SetHiddenVisibility();
             Label_Jar1.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Jar2(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 2;
-            SetHiddenVisibility();
+            visibility.SetHiddenVisibility();
             Label_Jar2.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Jar3(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 3;
-            SetHiddenVisibility();
+            visibility.SetHiddenVisibility();
             Label_Jar3.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Jar4(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 4;
-            SetHiddenVisibility();
+            visibility.SetHiddenVisibility();
             Label_Jar4.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Jar5(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 5;
-            SetHiddenVisibility();
+            visibility.SetHiddenVisibility();
             Label_Jar5.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Jar6(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 6;
-            SetHiddenVisibility();
+            visibility.SetHiddenVisibility();
             Label_Jar6.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Income(object sender, MouseButtonEventArgs e)
         {
-            SetHiddenVisibility();
+            visibility.SetHiddenVisibility();
             Income_grid.Visibility = Visibility.Visible;
         }
         private void SetExpenseVisible(object sender, MouseButtonEventArgs e)
@@ -380,21 +272,8 @@ namespace SaveMyMoney
                 }
             }
         }
-
-        private void Text_box_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox.Text == "")
-                textBox.Text = bufer;
-        }
-        private void Text_box_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            bufer = textBox.Text;
-            if (textBox.Text == bufer)
-                textBox.Text = "";
-        }
-
+        #endregion
+        #region Expense
         private void AddExpense(object sender, MouseButtonEventArgs e)
         {
             try
@@ -408,8 +287,7 @@ namespace SaveMyMoney
                     Description = Expense_DescT.Text.ToString(),
                     Period = int.Parse(Expense_PeriodT.Text.ToString())
                 };
-                ChangeMoneyInJars(expense);
-                AddExpenseInDatabase(expense);
+                expense.Work(User,Jar);
                 expense.Id = GetLastId("Expense");
                 RestartExpense();
                 CreatePlanner(User, "Expense", expense, null);
@@ -434,35 +312,12 @@ namespace SaveMyMoney
             else throw new Exception("Invalid Money Amount");
 
         }
-        private void AddExpenseInDatabase(ExpenseModel expense)
-        {
-            string money = expense.Money.ToString();
-            money = money.Replace(',', '.');
-            string sqlExpression2 = $"INSERT INTO Expense (Id_user,Name,Money,Description,Period,Date,Jar) values('{User.Id}','{expense.Name}','{money}','{expense.Description}','{expense.Period}',GETDATE(),'{Jar}');";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression2, connection);
-                int a = command.ExecuteNonQuery();
-            }
-        }
         private void RestartExpense()
         {
             Expense_moneyT.Text = TryFindResource("Money_amount") as string;
             Expense_nameT.Text = TryFindResource("ExpenceName") as string;
             Expense_DescT.Text = TryFindResource("Description") as string;
             Expense_PeriodT.Text = TryFindResource("Period") as string;
-        }
-        private void ChangeMoneyInJars(ExpenseModel expense)
-        {
-            string money = Expense_moneyT.Text.Replace(',', '.');
-            string sqlExpression = $"Update jars set Money = Money-{money} where Id_User = '{User.Id}' and Jar = '{Jar}'";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                command.ExecuteNonQuery();
-            }
         }
         private void UpdateGrafic(object sender, TextChangedEventArgs e)
         {
@@ -488,7 +343,8 @@ namespace SaveMyMoney
             History history = new History(User, "Expense", lang);
             history.Show();
         }
-
+        #endregion
+        #region Other Func
         private void CreatePlanner(UserModel user,string mod,ExpenseModel expense, IncomeModel income)
         {
             string sqlExpression;
@@ -533,29 +389,42 @@ namespace SaveMyMoney
             }
             return 0;
         }
-
-
-
-
-
-
-
+        private void SetLanguage(string lang)
+        {
+            if (lang == "RUS")
+            {
+                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_rus.xaml") };
+            }
+            else
+            {
+                this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resorses/Dictionary_eng.xaml") };
+            }
+        }
+        private void Text_box_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == "")
+                textBox.Text = bufer;
+        }
+        private void Text_box_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            bufer = textBox.Text;
+            if (textBox.Text == bufer)
+                textBox.Text = "";
+        }
+        #endregion
         public FirstWindow(string lang, UserModel User)
         {
             this.lang = lang;
             this.User = User;
             SetLanguage(lang);
             InitializeComponent();
-            AddToListTriggerEffect();
-            AddEventsToListTriggerEffect();
-            AddToListVisibilityEffect();
-            SetHiddenVisibility();
+            UI.Trigger trigger = new UI.Trigger(AddToListTriggerEffect());
+            UI.Shadow shadow = new UI.Shadow(AddToListShadowEffect());
+            visibility = new UI.Visibility(AddToListVisibilityEffect());
             Income_grid.Visibility = Visibility.Visible;
-            AddToListShadowEffect();
-            AddEventsToListShadowEffect();
-            SetShadow();
             AddEventsToMenuItems();
         }
-
     }
 }

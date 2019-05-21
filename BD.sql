@@ -13,18 +13,6 @@ Id_user tinyint foreign key references Users(id) not null,
 Jar tinyint not null check (Jar between 1 and 6),
 Money money not null
 )
-create table Debts --долги
-(
-id tinyint identity(0,1) primary key,
-Id_user tinyint foreign key references Users(id) not null,
-From_who nvarchar(50) not null,
-Date datetime not null,
-Expence money null,
-Income money null,
-Return_Date date null,
-Jar tinyint not null check (Jar between 1 and 6),
-Description nvarchar(300) null,
-)
 
 create table Expense --расходы
 (
@@ -69,8 +57,11 @@ Declare @b int = 0,
 @g int
 while @b<=(Select Max(id) from Planner)
 begin
+if (Select Period from Planner where id=@b) !=0
+begin
 set @a = (Select Date from Planner where id=@b)
 set @c =  (DATEDIFF(day,@a,GETDATE())/(Select Period from Planner where id=@b))
+end;
 if (Select Expense from Planner where id=@b) is not null
 begin
 set @d = (Select Expense from Planner where id=@b)
@@ -95,4 +86,25 @@ UPDATE Planner set Date = GETDATE() where id = @b
 end
 set @b = @b+1;
 end
+end;
+go
+Create Procedure GetPlanner @id tinyint as
+begin
+Select id,'Expense'as Type,Name,Money,Date,Period from Expense where Id_user = @id and Period !=0
+union 
+Select id,'Income'as Type,Name,Money,Date,Period from Income where Id_user = @id and Period !=0
 end
+go
+Create Procedure AddExpense @id tinyint,@name nvarchar(50),@money money,@desc nvarchar(50),@Period tinyint,@Jar tinyint as
+INSERT INTO Expense (Id_user,Name,Money,Description,Period,Date,Jar) values(@id,@name,@money,@desc,@Period,GETDATE(),@Jar);
+go
+Create Procedure UpdateJars @id tinyint,@Money money,@Jar tinyint as
+Update jars set Money = Money-@Money where Id_User = @id and Jar = @Jar
+go
+Create Procedure GetIncome @id tinyint as
+SELECT * FROM Income where Id_user= @id
+go
+Create Procedure GetExpense @id tinyint as
+SELECT * FROM Expense where Id_user= @id
+go
+

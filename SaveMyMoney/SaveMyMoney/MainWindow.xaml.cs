@@ -19,68 +19,23 @@ namespace SaveMyMoney
 {
     public partial class MainWindow : Window
     {
-        string lang = "ENG";
-
-        List<Grid> ListShadowEffect = new List<Grid>();
-
         string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
-
-        DropShadowEffect Shadow_Enter = new DropShadowEffect()
-        {
-            BlurRadius = 6,
-            Direction = 315,
-            Opacity = 0,
-            ShadowDepth = 5
-        };
-        DropShadowEffect Shadow_Leave = new DropShadowEffect()
-        {
-            BlurRadius = 6,
-            Direction = 315,
-            Opacity = 0.5,
-            ShadowDepth = 5
-        };
+        List<Grid> ListShadowEffect = new List<Grid>();
+        string lang = "ENG";
 
         public MainWindow()
         {
             InitializeComponent();
-            AddToListShadowEffect();
-            AddEventsToListShadowEffect();
-            SetShadow();
+            UI.Shadow shadow = new UI.Shadow(AddToListShadowEffect());
         }
-
-        private void AddToListShadowEffect()
+        private List<Grid> AddToListShadowEffect()
         {
             ListShadowEffect.Add(Login_Button_Grid);
             ListShadowEffect.Add(Login_grid);
             ListShadowEffect.Add(Password_Grid);
             ListShadowEffect.Add(Button_close_grid);
             ListShadowEffect.Add(Button_svernut_grid);
-        }
-        private void AddEventsToListShadowEffect()
-        {
-            foreach (Grid a in ListShadowEffect)
-            {
-                a.MouseEnter += ShadowEffect_Enter;
-                a.MouseLeave += ShadowEffect_Leave;
-            }
-        }
-        private void SetShadow()
-        {
-            foreach (Grid a in ListShadowEffect)
-            {
-                a.Effect = Shadow_Leave;
-            }
-        }
-
-        private void ShadowEffect_Enter(object sender, MouseEventArgs e)
-        {
-            Grid a = sender as Grid;
-            a.Effect = Shadow_Enter;
-        }
-        private void ShadowEffect_Leave(object sender, MouseEventArgs e)
-        {
-            Grid a = sender as Grid;
-            a.Effect = Shadow_Leave;
+            return ListShadowEffect;
         }
 
         private UserModel    GetUserModel()
@@ -147,7 +102,7 @@ namespace SaveMyMoney
             Registration reg = new Registration(lang);
             reg.ShowDialog();
         }
-        
+  
         private void TextEffectGotFocus (object sender, RoutedEventArgs e)
         {
             if (Text_box_Login_text.Text == "Login" || Text_box_Login_text.Text == "Логин")
@@ -162,6 +117,11 @@ namespace SaveMyMoney
             if (Text_box_password_text.Text == "")
                 Text_box_password_text.Text = this.TryFindResource("Password").ToString();
         }
+        private void LogIn_form_Loaded  (object sender, RoutedEventArgs e)
+        {
+            ColculatePlanner();
+        }
+
         private void ColculatePlanner()
         {
             string sqlExpression = $"exec UpdatePeriod";
@@ -171,11 +131,6 @@ namespace SaveMyMoney
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.ExecuteNonQuery();
             }
-        }
-
-        private void LogIn_form_Loaded(object sender, RoutedEventArgs e)
-        {
-            ColculatePlanner();
-        }
+        }  
     }
 }

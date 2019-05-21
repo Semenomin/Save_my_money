@@ -1,0 +1,59 @@
+﻿<Window x:Class="SaveMyMoney.Planner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaveMyMoney"
+        mc:Ignorable="d"
+        Title="Planner" Height="450" Width="800" WindowStyle="None" MinWidth="800" MinHeight="450">
+    <Grid Background="{DynamicResource SecondBlue}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="332"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="71"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Top_tool_grid" Background="{DynamicResource MainBlue}" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="33*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="Button_close_grid" Grid.Column="2" MouseUp="Close" Grid.RowSpan="2">
+                <Ellipse x:Name="Button_close" Fill="{DynamicResource SecondBlue}" Cursor="Hand" Margin="10" />
+            </Grid>
+            <Grid x:Name="Button_svernut_grid" Grid.Column="1" MouseUp="Svernut" Grid.RowSpan="2">
+                <Ellipse x:Name="Button_svernut" Fill="{DynamicResource SecondBlue}" Cursor="Hand" Margin="10" HorizontalAlignment="Center" Width="50" Height="48" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid x:Name="Drag_grid" MouseLeftButtonDown="DragWindow" Panel.ZIndex="3" Background="{DynamicResource MainBlue}" Grid.RowSpan="2"/>
+        </Grid>
+        <Grid Background="{DynamicResource SecondBlue}" Grid.Row="1">
+            <DataGrid x:Name="stockGrid" BorderBrush="{x:Null}" Background="{DynamicResource MainBlue}" Foreground="{DynamicResource SecondBlue}" Margin="10" RowBackground="{DynamicResource MainBlue}" AlternatingRowBackground="{DynamicResource MainBlue}" HorizontalGridLinesBrush="{DynamicResource SecondBlue}" VerticalGridLinesBrush="{DynamicResource SecondBlue}" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" FontSize="16" FontFamily="Segoe UI Light"/>
+        </Grid>
+        <Grid Background="{DynamicResource SecondBlue}" Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75*" />
+                <RowDefinition Height="75" />
+                <RowDefinition Height="75" />
+                <RowDefinition Height="74*" />
+                <RowDefinition Height="75*" />
+
+            </Grid.RowDefinitions>
+            <Grid x:Name="Null_button" Grid.Row="1" MouseUp="NullPeriod" Cursor="Hand">
+                <Rectangle Fill="{DynamicResource MainBlue}" RadiusY="28" RadiusX="28" Margin="10"/>
+                <Label Margin="10" Foreground="{DynamicResource SecondBlue}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold" Content="{DynamicResource ResetPeriod}"/>
+            </Grid>
+            <Grid x:Name="Update_button" Grid.Row="2" Cursor="Hand" MouseUp="Update">
+                <Rectangle Fill="{DynamicResource MainBlue}" RadiusY="28" RadiusX="28" Margin="10"/>
+                <Label Content="{DynamicResource Update}" Margin="10" Foreground="{DynamicResource SecondBlue}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

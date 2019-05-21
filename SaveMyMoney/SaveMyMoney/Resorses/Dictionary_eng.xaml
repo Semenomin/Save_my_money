@@ -67,4 +67,6 @@
     <system:String x:Key="Delete">Delete</system:String>
     <system:String x:Key="Update">Update</system:String>
     <system:String x:Key="ExpensePlanner">Expense planner</system:String>
+    <system:String x:Key="ResetPeriod">Reset Period</system:String>
+
 </ResourceDictionary>

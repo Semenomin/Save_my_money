@@ -65,4 +65,7 @@
     <system:String x:Key="Creator">О создателе</system:String>
     <system:String x:Key="Delete">Удалить</system:String>
     <system:String x:Key="Update">Обновить</system:String>
+    <system:String x:Key="ExpensePlanner">Планнер Расходов</system:String>
+    <system:String x:Key="ResetPeriod">Сбросить период</system:String>
+
 </ResourceDictionary>

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SaveMyMoney.App">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.StockCharacteristic" Collapsed="true">
+    <Position X="10.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAgAAgAAAAAAASQAAAAAAABAAAAAAAAAAI=</HashCode>
+      <FileName>Classes\StockCharacteristic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.StockPlanner">
+    <Position X="2" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASAAAAAAAAAAgAAAAAAAQAAAAAAgABAQAAAAAAAAI=</HashCode>
+      <FileName>Classes\StockPlanner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.Creator" BaseTypeListCollapsed="true">
+    <Position X="9" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Creator.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SaveMyMoney.FirstWindow" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABABAABSAAEJ5B8ADlECARAAABBCIAEIAAABIAbAAEA=</HashCode>
+      <FileName>FirstWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SaveMyMoney.History" BaseTypeListCollapsed="true">
+    <Position X="3.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAgAAAAAAAACQAAAAAAAIAAAAAAAEAKAAAA=</HashCode>
+      <FileName>History.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SaveMyMoney.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAADAAAAAAgAAAQAAAAAAABAACAAAgAwEAaAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SaveMyMoney.MessageBox" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageBox.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SaveMyMoney.DebtModel">
+    <Position X="5.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgAAqAAABAAAAAAAAAAACAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DebtModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.ExpenseModel">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgSAAAAAAAgAAgAAAAAAAQAAAAAAAIBAAAgAAAAAAI=</HashCode>
+      <FileName>Models\ExpenseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.IncomeModel">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgSAAAAAAAgAAgAIABAAAQAAAAABAABAAAAAAAAAAI=</HashCode>
+      <FileName>Models\IncomeModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.PlannerModel">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAACAAABAAAAACAAAAI=</HashCode>
+      <FileName>Models\PlannerModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.RegistrationModel">
+    <Position X="2" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQCAAAAAAACAAAQAAAAAAA=</HashCode>
+      <FileName>Models\RegistrationModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.UserModel">
+    <Position X="3.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\UserModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.Planner" BaseTypeListCollapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAACAAgAAAhAAAACQAAAAAAAIAAAAAAAAAKAAQA=</HashCode>
+      <FileName>Planner.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SaveMyMoney.Registration" BaseTypeListCollapsed="true">
+    <Position X="9" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAACAAAgAAAgCAQAAAACAAgAAAAAAAAwAAAE=</HashCode>
+      <FileName>Registration.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SaveMyMoney.UI.Shadow">
+    <Position X="7.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAMAAAAAAAAAAAEAAAAAAAQAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Classes\UI\Shadow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.UI.Trigger">
+    <Position X="5.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAgAAAAAAAAAAAAAACAABA=</HashCode>
+      <FileName>Classes\UI\Trigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.UI.Visibility">
+    <Position X="5.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\UI\Visibility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.Properties.Resources">
+    <Position X="7.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveMyMoney.Properties.Settings">
+    <Position X="2" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

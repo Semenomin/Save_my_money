@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SaveMyMoney"
         mc:Ignorable="d"
         Title="History" Height="424.468" Width="752.128" MinWidth="800" MinHeight="450" WindowStyle="None">
-    <Grid Background="{DynamicResource MainBlue}">
+    <Grid Background="{DynamicResource SecondBlue}">
         <Grid.RowDefinitions>
             <RowDefinition Height="68"/>
             <RowDefinition/>
@@ -41,13 +41,9 @@
                 <RowDefinition Height="75*" />
 
             </Grid.RowDefinitions>
-            <Grid x:Name="Delete_button" Grid.Row="1">
+            <Grid x:Name="Delete_button" Grid.Row="2">
                 <Rectangle Fill="{DynamicResource MainBlue}" RadiusY="28" RadiusX="28" Margin="10"/>
                 <Label Content="{DynamicResource Delete}" Margin="10" Foreground="{DynamicResource SecondBlue}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
-            </Grid>
-            <Grid x:Name="Update_button" Grid.Row="2">
-                <Rectangle Fill="{DynamicResource MainBlue}" RadiusY="28" RadiusX="28" Margin="10"/>
-                <Label Content="{DynamicResource Update}" Margin="10" Foreground="{DynamicResource SecondBlue}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
             </Grid>
         </Grid>
 

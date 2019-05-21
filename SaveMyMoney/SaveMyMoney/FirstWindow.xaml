@@ -205,7 +205,7 @@
                 <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource MainBlue}" Margin="0,5"/>
                 <Label x:Name="hist1" Content="{DynamicResource History}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource SecondBlue}" Cursor="Hand"/>
             </Grid>
-            <Grid x:Name="Expense_Planner" Grid.Row="2" Grid.Column="1">
+            <Grid x:Name="Expense_Planner" Grid.Row="2" Grid.Column="1" MouseUp="OpenPlanner">
                 <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource MainBlue}" Margin="0,5"/>
                 <Label Content="{DynamicResource Planner}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource SecondBlue}" Cursor="Hand"/>
             </Grid>
@@ -257,7 +257,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Rectangle x:Name="Expense_name5" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource MainBlue}" Margin="20,0"/>
-                    <TextBox x:Name="Expense_nameT" TextWrapping="Wrap" Text="{DynamicResource income_name}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource SecondBlue}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="20,0"/>
+                    <TextBox x:Name="Expense_nameT" TextWrapping="Wrap" Text="{DynamicResource ExpenceName}" FontSize="20" Background="{x:Null}" Padding="20,0,0,0" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" VerticalContentAlignment="Center" Foreground="{DynamicResource SecondBlue}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="20,0"/>
                 </Grid>
                 <Grid x:Name="Expense_Money" Grid.Row="2" Margin="0,0,0,5">
                     <Grid.RowDefinitions>

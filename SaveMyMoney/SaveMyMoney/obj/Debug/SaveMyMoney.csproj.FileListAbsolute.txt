@@ -60,3 +60,16 @@ D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\MaterialDesi
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.csproj.CopyComplete
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Creator.g.cs
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Creator.baml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\System.Net.Http.Extensions.dll
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\System.Net.Http.Primitives.dll
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\XAct.Core.PCL.dll
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\XAct.Diagrams.Uml.PlantUml.dll
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\System.Net.Http.Extensions.xml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\bin\Debug\System.Net.Http.Primitives.xml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Planner.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Planner.baml
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\MessageBox.g.cs
+D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\MessageBox.baml
