@@ -22,7 +22,9 @@ namespace SaveMyMoney
         {
             SetLanguage(lang);
             InitializeComponent();
-            UI.Shadow shadow = new UI.Shadow(AddToListShadowEffect());
+            UI.Effect effect = new UI.Effect();
+            effect.Effectable = new UI.ShadowEffect();
+            effect.SetEffect(AddToListShadowEffect());
             StockCharacteristic stock = new StockCharacteristic(user, Database, ref stockGrid);
         }
 
@@ -54,7 +56,6 @@ namespace SaveMyMoney
             List<Grid> ListShadowEffect = new List<Grid>();
             ListShadowEffect.Add(Button_close_grid);
             ListShadowEffect.Add(Button_svernut_grid);
-            ListShadowEffect.Add(Delete_button);
             return ListShadowEffect;
         }
 
@@ -80,7 +81,5 @@ namespace SaveMyMoney
             }
             throw new Exception("Bad Trip");
         }
-
-
     }
 }

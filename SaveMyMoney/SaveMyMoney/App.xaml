@@ -8,13 +8,29 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resorses/Dictionary_rus.xaml" />
                 <ResourceDictionary Source="Resorses/Dictionary_eng.xaml" />
-                 </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>
             <SolidColorBrush x:Key="MainBlue" Color="#FF1F4B55"/>
             <SolidColorBrush x:Key="SecondBlue" Color="#FF32706A"/>
-            <FontFamily x:Key="MainFont">Garamond</FontFamily>
-            <DropShadowEffect x:Key="Shadow_Leave" x:Name="Drop_shadow_Text_box_login" Opacity="0.5" BlurRadius="6"/>
-            <DropShadowEffect x:Key="Shadow_Enter" x:Name="Drop_shadow_Text_box_login1" Opacity="0" BlurRadius="6"/>
+            <SolidColorBrush Color="#19000000" x:Key="Trigger" />
+            <Style TargetType="TextBox">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsFocused" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
-       
     </Application.Resources>
 </Application>

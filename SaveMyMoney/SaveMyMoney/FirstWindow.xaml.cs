@@ -24,8 +24,8 @@ namespace SaveMyMoney
         string bufer;
         string lang;
         UserModel User;
-        int Jar;
-        UI.Visibility visibility;
+        int Jar = 0;
+        UI.Effect visibility;
         #endregion
         #region Add In List
         private List<Grid> AddToListShadowEffect()
@@ -46,6 +46,7 @@ namespace SaveMyMoney
             ListShadowEffect.Add(Expense_Money);
             ListShadowEffect.Add(Expense_Period);
             ListShadowEffect.Add(Expense_Description);
+            ListShadowEffect.Add(Income_Planner);
             return ListShadowEffect;
         }
         private List<Grid> AddToListTriggerEffect()
@@ -202,48 +203,48 @@ namespace SaveMyMoney
         private void Jar1(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 1;
-            visibility.SetHiddenVisibility();
+            visibility.SetEffect(AddToListVisibilityEffect());
             Label_Jar1.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Jar2(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 2;
-            visibility.SetHiddenVisibility();
+            visibility.SetEffect(AddToListVisibilityEffect());
             Label_Jar2.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Jar3(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 3;
-            visibility.SetHiddenVisibility();
+            visibility.SetEffect(AddToListVisibilityEffect());
             Label_Jar3.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Jar4(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 4;
-            visibility.SetHiddenVisibility();
+            visibility.SetEffect(AddToListVisibilityEffect());
             Label_Jar4.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Jar5(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 5;
-            visibility.SetHiddenVisibility();
+            visibility.SetEffect(AddToListVisibilityEffect());
             Label_Jar5.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Jar6(object sender, MouseButtonEventArgs e)
         {
             this.Jar = 6;
-            visibility.SetHiddenVisibility();
+            visibility.SetEffect(AddToListVisibilityEffect());
             Label_Jar6.Visibility = Visibility.Visible;
             UseSelectedJar();
         }
         private void Income(object sender, MouseButtonEventArgs e)
         {
-            visibility.SetHiddenVisibility();
+            visibility.SetEffect(AddToListVisibilityEffect());
             Income_grid.Visibility = Visibility.Visible;
         }
         private void SetExpenseVisible(object sender, MouseButtonEventArgs e)
@@ -419,9 +420,14 @@ namespace SaveMyMoney
             this.User = User;
             SetLanguage(lang);
             InitializeComponent();
-            UI.Trigger trigger = new UI.Trigger(AddToListTriggerEffect());
-            UI.Shadow shadow = new UI.Shadow(AddToListShadowEffect());
-            visibility = new UI.Visibility(AddToListVisibilityEffect());
+            UI.Effect effect = new UI.Effect();
+            effect.Effectable = new UI.ShadowEffect();
+            effect.SetEffect(AddToListShadowEffect());
+            effect.Effectable = new UI.TriggerEffect();
+            effect.SetEffect(AddToListTriggerEffect());
+            effect.Effectable = new UI.VisibilityEffect();
+            effect.SetEffect(AddToListVisibilityEffect());
+            visibility = effect;
             Income_grid.Visibility = Visibility.Visible;
             AddEventsToMenuItems();
         }

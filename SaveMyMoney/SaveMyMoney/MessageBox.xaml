@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SaveMyMoney"
         mc:Ignorable="d"
-        Title="Message Box" Height="200" Width="300" ResizeMode="NoResize" WindowStyle="None" BorderBrush="White" BorderThickness="4" WindowStartupLocation="CenterScreen">
+        Title="Message Box" Height="200" Width="300" ResizeMode="NoResize" WindowStyle="None" BorderBrush="White" BorderThickness="4" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
     <Grid Background="{DynamicResource SecondBlue}" MouseUp="Grid_MouseUp">
         <TextBlock x:Name="Message" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="180" Width="280" Foreground="{DynamicResource MainBlue}" FontSize="18"/>
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SaveMyMoney"
         mc:Ignorable="d"
-        Title="Registration" Height="565" Width="734" MinWidth="734" MinHeight="565">
+        Title="Registration" Height="565" Width="734" MinWidth="734" MinHeight="565" ShowInTaskbar="False">
     <Grid Background="{DynamicResource MainBlue}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="139*"/>

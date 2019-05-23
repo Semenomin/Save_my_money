@@ -2,70 +2,43 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:SaveMyMoney"
                      xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <SolidColorBrush Color="#19000000" x:Key="Trigger" />
-    <SolidColorBrush Color="#FF5CC356" x:Key="SecondGreen" />
-    <SolidColorBrush Color="#FF2B6D26" x:Key="MainGreen" />
-    <Style TargetType="TextBox">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
-                        </Trigger>
-                        <Trigger Property="IsFocused" Value="true">
-                            <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <system:String x:Key="Login">Логин</system:String>
-    <system:String x:Key="Password">Пороль</system:String>
-    <system:String x:Key="Registration">Регистрация</system:String>
-    <system:String x:Key="Language">Язык</system:String>
-    <system:String x:Key="LogIn">Войти</system:String>
-    <system:String x:Key="1_bottle">Кувшин 1</system:String>
-    <system:String x:Key="2_bottle">Кувшин 2</system:String>
-    <system:String x:Key="3_bottle">Кувшин 3</system:String>
-    <system:String x:Key="4_bottle">Кувшин 4</system:String>
-    <system:String x:Key="5_bottle">Кувшин 5</system:String>
-    <system:String x:Key="6_bottle">Кувшин 6</system:String>
-    <system:String x:Key="Settings">Настройки</system:String>
-    <system:String x:Key="Log_out">Выйти из аккаунта</system:String>
-    <system:String x:Key="Name">Имя</system:String>
-    <system:String x:Key="RepPassword">Повт Пороль</system:String>
+    <system:String x:Key="Login">          Логин</system:String>
+    <system:String x:Key="Password">       Пороль</system:String>
+    <system:String x:Key="Registration">   Регистрация</system:String>
+    <system:String x:Key="Language">       Язык</system:String>
+    <system:String x:Key="LogIn">          Войти</system:String>
+    <system:String x:Key="1_bottle">       Кувшин 1</system:String>
+    <system:String x:Key="2_bottle">       Кувшин 2</system:String>
+    <system:String x:Key="3_bottle">       Кувшин 3</system:String>
+    <system:String x:Key="4_bottle">       Кувшин 4</system:String>
+    <system:String x:Key="5_bottle">       Кувшин 5</system:String>
+    <system:String x:Key="6_bottle">       Кувшин 6</system:String>
+    <system:String x:Key="Settings">       Настройки</system:String>
+    <system:String x:Key="Log_out">        Выйти из аккаунта</system:String>
+    <system:String x:Key="Name">           Имя</system:String>
+    <system:String x:Key="RepPassword">    Повт Пороль</system:String>
     <system:String x:Key="One_time_income">Разовый доход</system:String>
-    <system:String x:Key="income_planner">Планнер доходов</system:String>
-    <system:String x:Key="income_name">Имя дохода</system:String>
-    <system:String x:Key="Money_amount">Денежная сумма</system:String>
-    <system:String x:Key="Description">Описание</system:String>
-    <system:String x:Key="Period">Период в днях</system:String>
-    <system:String x:Key="Onceaweek">Раз в неделю</system:String>
-    <system:String x:Key="Onceaday">Раз в день</system:String>
-    <system:String x:Key="Onceayear">Раз в год</system:String>
-    <system:String x:Key="Income">Доход</system:String>
-    <system:String x:Key="History">История</system:String>
-    <system:String x:Key="Planner">Планы</system:String>
-    <system:String x:Key="Add">Добавить</system:String>
-    <system:String x:Key="Charts">Графики</system:String>
-    <system:String x:Key="Jar1_lab">Расходы на самое необходимое(NEC-55%)</system:String>
-    <system:String x:Key="Jar2_lab">Расходы на развлечения (PLY - 10%)</system:String>
-    <system:String x:Key="Jar3_lab">Сбережения (FFA - 10%)</system:String>
-    <system:String x:Key="Jar4_lab">Расходы на образование (EDU - 10%)</system:String>
-    <system:String x:Key="Jar5_lab">Резервный фонд (LTS - 10%)</system:String>
-    <system:String x:Key="Jar6_lab">Расходы на подарки (GIV - 5%)</system:String>
-    <system:String x:Key="ExpenceName">Имя расхода</system:String>
-    <system:String x:Key="Onceamonth">Раз в месяц</system:String>
-    <system:String x:Key="none">Пусто</system:String>
-    <system:String x:Key="Creator">О создателе</system:String>
-    <system:String x:Key="Delete">Удалить</system:String>
-    <system:String x:Key="Update">Обновить</system:String>
-    <system:String x:Key="ExpensePlanner">Планнер Расходов</system:String>
-    <system:String x:Key="ResetPeriod">Сбросить период</system:String>
-
+    <system:String x:Key="income_planner"> Планнер доходов</system:String>
+    <system:String x:Key="income_name">    Имя дохода</system:String>
+    <system:String x:Key="Money_amount">   Денежная сумма</system:String>
+    <system:String x:Key="Description">    Описание</system:String>
+    <system:String x:Key="Period">         Период в днях</system:String>
+    <system:String x:Key="Income">         Доход</system:String>
+    <system:String x:Key="History">        История</system:String>
+    <system:String x:Key="Planner">        Планы</system:String>
+    <system:String x:Key="Add">            Добавить</system:String>
+    <system:String x:Key="Jar1_lab">       Расходы на самое необходимое(NEC-55%)</system:String>
+    <system:String x:Key="Jar2_lab">       Расходы на развлечения (PLY - 10%)</system:String>
+    <system:String x:Key="Jar3_lab">       Сбережения (FFA - 10%)</system:String>
+    <system:String x:Key="Jar4_lab">       Расходы на образование (EDU - 10%)</system:String>
+    <system:String x:Key="Jar5_lab">       Резервный фонд (LTS - 10%)</system:String>
+    <system:String x:Key="Jar6_lab">       Расходы на подарки (GIV - 5%)</system:String>
+    <system:String x:Key="ExpenceName">    Имя расхода</system:String>
+    <system:String x:Key="Onceamonth">     Раз в месяц</system:String>
+    <system:String x:Key="none">           Пусто</system:String>
+    <system:String x:Key="Creator">        О создателе</system:String>
+    <system:String x:Key="Delete">         Удалить</system:String>
+    <system:String x:Key="Update">         Обновить</system:String>
+    <system:String x:Key="ExpensePlanner"> Планнер Расходов</system:String>
+    <system:String x:Key="ResetPeriod">    Сбросить период</system:String>
 </ResourceDictionary>

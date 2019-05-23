@@ -5,20 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SaveMyMoney"
         mc:Ignorable="d"
-        Title="History" Height="424.468" Width="752.128" MinWidth="800" MinHeight="450" WindowStyle="None">
+        Title="History" Height="424.468" Width="638" MinHeight="450" WindowStyle="None" MinWidth="638" ShowInTaskbar="False">
     <Grid Background="{DynamicResource SecondBlue}">
         <Grid.RowDefinitions>
             <RowDefinition Height="68"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="271*"/>
-            <ColumnDefinition Width="125*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Background="{DynamicResource SecondBlue}" Grid.Row="1">
             <DataGrid x:Name="stockGrid" BorderBrush="{x:Null}" Background="{DynamicResource MainBlue}" Foreground="{DynamicResource SecondBlue}" Margin="10" RowBackground="{DynamicResource MainBlue}" AlternatingRowBackground="{DynamicResource MainBlue}" HorizontalGridLinesBrush="{DynamicResource SecondBlue}" VerticalGridLinesBrush="{DynamicResource SecondBlue}" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" FontSize="16" FontFamily="Segoe UI Light"/>
         </Grid>
-        <Grid x:Name="Top_tool_grid" Background="{DynamicResource MainBlue}" Grid.ColumnSpan="2">
+        <Grid x:Name="Top_tool_grid" Background="{DynamicResource MainBlue}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="70"/>
@@ -31,20 +30,6 @@
                 <Ellipse x:Name="Button_svernut" Fill="{DynamicResource SecondBlue}" Cursor="Hand" Margin="10" HorizontalAlignment="Center" Width="50" Height="48" VerticalAlignment="Center"/>
             </Grid>
             <Grid x:Name="Drag_grid" MouseLeftButtonDown="DragWindow" Panel.ZIndex="3" Background="{DynamicResource MainBlue}"/>
-        </Grid>
-        <Grid Grid.Column="1" Grid.Row="1" Background="{DynamicResource SecondBlue}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="75*" />
-                <RowDefinition Height="75" />
-                <RowDefinition Height="75" />
-                <RowDefinition Height="74*" />
-                <RowDefinition Height="75*" />
-
-            </Grid.RowDefinitions>
-            <Grid x:Name="Delete_button" Grid.Row="2">
-                <Rectangle Fill="{DynamicResource MainBlue}" RadiusY="28" RadiusX="28" Margin="10"/>
-                <Label Content="{DynamicResource Delete}" Margin="10" Foreground="{DynamicResource SecondBlue}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold"/>
-            </Grid>
         </Grid>
 
     </Grid>

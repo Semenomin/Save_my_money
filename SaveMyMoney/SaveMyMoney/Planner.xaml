@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SaveMyMoney"
         mc:Ignorable="d"
-        Title="Planner" Height="450" Width="800" WindowStyle="None" MinWidth="800" MinHeight="450">
+        Title="Planner" Height="450" Width="800" WindowStyle="None" MinWidth="800" MinHeight="450" Icon="Resorses/Logo.png">
     <Grid Background="{DynamicResource SecondBlue}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

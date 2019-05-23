@@ -30,7 +30,9 @@ namespace SaveMyMoney
             this.lang = lang;
             SetLanguage(lang);
             InitializeComponent();
-            UI.Shadow shadow =new UI.Shadow(AddToListShadowEffect());
+            UI.Effect effect = new UI.Effect();
+            effect.Effectable = new UI.ShadowEffect();
+            effect.SetEffect(AddToListShadowEffect());
         }
         private void SetLanguage(string lang)
         {

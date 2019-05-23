@@ -20,12 +20,12 @@ namespace SaveMyMoney
     {
         public readonly string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
 
-        public int Id { get; set; }
-        public string Date { get; set; }
-        public float Money { get; set; }
-        public string Name { get; set; }
+        public int    Id          { get; set; }
+        public string Date        { get; set; }
+        public float  Money       { get; set; }
+        public string Name        { get; set; }
         public string Description { get; set; }
-        public int Period { get; set; }
+        public int    Period      { get; set; }
 
         public void Work(UserModel user)
         {

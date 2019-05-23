@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SaveMyMoney"
-        mc:Ignorable="d" Height="500" Width="750" MaxWidth="750" MaxHeight="500" Padding="20" MinWidth="750" MinHeight="500" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="LogIn_form_Loaded">
+        mc:Ignorable="d" Height="500" Width="750" MaxWidth="750" MaxHeight="500" Padding="20" MinWidth="750" MinHeight="500" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="LogIn_form_Loaded" Icon="Resorses/Logo.png">
 
     <Grid x:Name="Main_grid" Background="{DynamicResource MainBlue}">
         <Grid.RowDefinitions>

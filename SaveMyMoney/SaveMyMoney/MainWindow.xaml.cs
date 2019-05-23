@@ -22,11 +22,13 @@ namespace SaveMyMoney
         string connectionString = @"Data Source=.\SQLSERVER;Initial Catalog=Save_My_Money;Integrated Security=True";
         List<Grid> ListShadowEffect = new List<Grid>();
         string lang = "ENG";
-
+        string pass;
         public MainWindow()
         {
             InitializeComponent();
-            UI.Shadow shadow = new UI.Shadow(AddToListShadowEffect());
+            UI.Effect effect = new UI.Effect();
+            effect.Effectable = new UI.ShadowEffect();
+            effect.SetEffect(AddToListShadowEffect());
         }
         private List<Grid> AddToListShadowEffect()
         {
@@ -133,5 +135,6 @@ namespace SaveMyMoney
                 command.ExecuteNonQuery();
             }
         }
+
     }
 }

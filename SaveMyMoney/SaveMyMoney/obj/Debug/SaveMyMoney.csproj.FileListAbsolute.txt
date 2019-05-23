@@ -24,7 +24,6 @@ C:\Users\User\source\repos\SaveMyMoney\SaveMyMoney\obj\Debug\GeneratedInternalTy
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.csprojAssemblyReference.cache
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\MainWindow.g.cs
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\App.g.cs
-D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney_MarkupCompile.cache
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney_MarkupCompile.lref
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\SaveMyMoney.exe
@@ -67,5 +66,3 @@ D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Planner.g.cs
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\Planner.baml
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\MessageBox.g.cs
 D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\MessageBox.baml
-D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\MasterWindow.g.cs
-D:\Git Repositories\Save_my_money\SaveMyMoney\SaveMyMoney\obj\Debug\MasterWindow.baml

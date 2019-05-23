@@ -28,7 +28,9 @@ namespace SaveMyMoney
             this.user = user;
             SetLanguage(lang);
             InitializeComponent();
-            UI.Shadow shadow = new UI.Shadow(AddToListShadowEffect());
+            UI.Effect effect = new UI.Effect();
+            effect.Effectable = new UI.ShadowEffect();
+            effect.SetEffect(AddToListShadowEffect());
             StockPlanner stock = new StockPlanner(user, ref stockGrid);
         }
 

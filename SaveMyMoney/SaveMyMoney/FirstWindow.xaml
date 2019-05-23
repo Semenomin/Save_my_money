@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SaveMyMoney"
         x:Name="wwwindow" x:Class="SaveMyMoney.FirstWindow"
         mc:Ignorable="d"
-        Title="FirstWindow" Height="553" MinWidth="750" MinHeight="553" Width="890.734" WindowStyle="None">
+        Title="FirstWindow" Height="553" MinWidth="750" MinHeight="553" Width="890.734" WindowStyle="None" Icon="Resorses/Logo.png">
     <Grid x:Name="Main_grid" Background="{DynamicResource MainBlue}" Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="206"/>
@@ -22,7 +22,7 @@
             <RowDefinition/>
             <RowDefinition Height="46"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="Income_grid" Panel.ZIndex="-1" Grid.Column="2" Grid.Row="1" Background="{DynamicResource SecondBlue}" d:IsHidden="True">
+        <Grid x:Name="Income_grid" Panel.ZIndex="-1" Grid.Column="2" Grid.Row="1" Background="#FF32706A">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -74,13 +74,17 @@
                 <Rectangle x:Name="Text_box_name1" RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource MainBlue}" Margin="20,0,40,0"/>
                 <TextBox x:Name="Income_DescT" TextWrapping="Wrap" Text="{DynamicResource Description}" FontSize="20" Background="{x:Null}" Padding="20,20,0,20" BorderBrush="{x:Null}" SelectionBrush="#FFB2B2B2" Foreground="{DynamicResource SecondBlue}" LostFocus="Text_box_LostFocus" GotFocus="Text_box_GotFocus" Margin="20,0,40,0"/>
             </Grid>
-            <Grid x:Name="Income_button_Add" Grid.Column="1" Grid.Row="3" Cursor="Hand" MouseUp="AddIncome">
+            <Grid x:Name="Income_button_Add" Grid.Column="1" Grid.Row="2" Cursor="Hand" MouseUp="AddIncome">
                 <Rectangle Fill="{DynamicResource MainBlue}" Margin="77,0,77,5" RadiusY="28" RadiusX="28"/>
                 <Label Content="{DynamicResource Add}" Foreground="{DynamicResource SecondBlue}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold" Margin="77,0,77,5"/>
             </Grid>
-            <Grid x:Name="Income_button_History" Grid.Column="1" Grid.Row="4" Cursor="Hand" MouseUp="OpenIncomeHistoryWindow">
+            <Grid x:Name="Income_button_History" Grid.Column="1" Grid.Row="3" Cursor="Hand" MouseUp="OpenIncomeHistoryWindow">
                 <Rectangle Fill="{DynamicResource MainBlue}" Margin="77,0,77,5" RadiusY="28" RadiusX="28"/>
                 <Label Content="{DynamicResource History}" Foreground="{DynamicResource SecondBlue}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Semibold" Margin="77,0,77,5"/>
+            </Grid>
+            <Grid x:Name="Income_Planner" Grid.Row="4" MouseUp="OpenPlanner" Grid.Column="1">
+                <Rectangle RadiusY="28" RadiusX="28" Cursor="Hand" Fill="{DynamicResource MainBlue}" Margin="77,0,77,5"/>
+                <Label Content="{DynamicResource Planner}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="{DynamicResource SecondBlue}" Cursor="Hand"/>
             </Grid>
         </Grid>
         <Grid x:Name="Tool_grid" Grid.Row="2" Background="{DynamicResource MainBlue}" Panel.ZIndex="-2" Grid.ColumnSpan="4">
